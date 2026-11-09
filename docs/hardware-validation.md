@@ -1,5 +1,7 @@
 # FM-1 hardware validation — 2026-11-09
 
+**0.2.0-beta status:** dual-song compressed build passed host game/render tests and firmware capacity checks. It has not been flashed; the user disconnected the device. The measurements below belong to the previous single-song build and do not establish dual-song FPS or audio deadlines.
+
 Validated on one connected M-VAVE FM-1, using development identity FM-1_950. The release has its own identity FM-1_91720101; it retains the same tested audio/game logic.
 
 - A real-device USB MIDI input run, with AUTO disabled, sent 200 note-ons and 200 note-offs: **200 PERFECT, 0 GREAT/GOOD/MISS, maximum combo 200**. This does not mechanically exercise the physical keys.

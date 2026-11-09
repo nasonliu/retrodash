@@ -1,0 +1,6 @@
+Music: Opening Theme (part 3), Final Fantasy VI (SFC/SNES), Nobuo Uematsu / Square.
+SPC snapshot supplied by the user. Source SHA256: 0f31f955257a26f4d5e9ff9c07805f06df7236fb55c5a615b427ee9e5125443d.
+Character and setting references: Terra Branford, Imperial Magitek armor, imperial infantry and Narshe, Final Fantasy VI, Square Enix. Rights remain with their respective owners.
+Song artwork: newly generated with OpenAI image_gen, 2026-11-09, then cropped, keyed, normalized and palette-packed for RetroDash. Inspired by the original SFC game; not an extraction of its original sprite data.
+Code: RetroDash GPL-3.0-only; snes_spc by Shay Green LGPL-2.1-or-later, see firmware/vendor/snes_spc/LICENSE.
+This song's music/characters are not relicensed under the firmware's GPL. No blanket permission for redistribution or commercial use is granted by this project.

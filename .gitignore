@@ -7,3 +7,4 @@ __pycache__/
 .venv/
 projects/peaceful-days-spc/verification/reference.wav
 assets/chrono-trigger-source/crono-official-reference.png
+projects/ff6-terra-snow/verification/reference.wav

@@ -26,5 +26,5 @@ typedef struct {
 } kf_song_t;
 
 
-#define KF_NSONG 1u
-static kf_song_t KF_SONG[1];
+#define KF_NSONG 2u
+static kf_song_t KF_SONG[KF_NSONG];

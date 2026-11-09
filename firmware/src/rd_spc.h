@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 void rd_spc_init(void);
+void rd_spc_select(uint32_t index);
 void rd_spc_start(uint32_t frame,uint32_t speed);
 void rd_spc_stop(void);
 void rd_spc_pause(uint32_t paused);

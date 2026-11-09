@@ -17,10 +17,15 @@ static unsigned char aram[65536];
 static unsigned char aram[65536] __attribute__((section(".pool")));
 #endif
 static SPC_DSP dsp;
+static const rd_spc_song_data *song=&RD_SPC_SONGS[0];
+static volatile unsigned selected_song;
+static rd_block_cache_t event_cache __attribute__((section(".pool")));
+static bool rd_spc_is_lead(unsigned voice,unsigned srcn){for(unsigned i=0;i<song->part_count;i++)if(song->parts[i*2]==voice&&song->parts[i*2+1]==srcn)return true;return false;}
+static unsigned event_byte(unsigned at){return rd_block_byte(song->events,&event_cache,at);}
 static unsigned char regs[128];
 static short pcm[80];
 static unsigned pcm_at,pcm_count,clock_now,event_at,event_clock,event_reg,event_value,event_left;
-static unsigned phase,step=32000,gate_end,manual_at;
+static unsigned phase,step=32000,gate_end[8],manual_at;
 static int a[2],b[2];
 static volatile unsigned start_request,stop_request,pause_request,mix_request=30,start_frame,start_speed=100;
 static volatile unsigned hit_write,hit_read;
@@ -29,30 +34,17 @@ static unsigned seen_start,seen_stop,active,ready,error_code,hit_count,suppresse
 static unsigned native_pairs,native_hash=2166136261u,last_hash,hash_second;
 
 static unsigned u32(const unsigned char *p){return unsigned(p[0])|unsigned(p[1])<<8|unsigned(p[2])<<16|unsigned(p[3])<<24;}
-static bool unpack_ram(){
- const unsigned char *p=RD_SPC_RAM,*end=p+sizeof(RD_SPC_RAM);unsigned at=0;
- while(p<end){
-  unsigned token=*p++,n=token>>4;
-  if(n==15){unsigned x;do{if(p==end)return false;x=*p++;n+=x;}while(x==255);}
-  if(n>unsigned(end-p)||n>65536-at)return false;
-  memcpy(aram+at,p,n);p+=n;at+=n;if(p==end)break;
-  if(end-p<2)return false;unsigned offset=p[0]|unsigned(p[1])<<8;p+=2;
-  if(!offset||offset>at)return false;n=token&15;
-  if(n==15){unsigned x;do{if(p==end)return false;x=*p++;n+=x;}while(x==255);}
-  n+=4;if(n>65536-at)return false;
-  while(n--){aram[at]=aram[at-offset];at++;}
- }
- return at==65536;
-}
+static bool unpack_ram(){return rd_unpack(song->ram,song->ram_size,aram,65536);}
+
 static void next_event(){
  if(!event_left){event_clock=0xffffffffu;return;}
  unsigned delta=0,shift=0;
  for(;;){
-  if(event_at>=sizeof(RD_SPC_EVENTS)||shift>28){error_code=2;event_left=0;event_clock=0xffffffffu;return;}
-  unsigned v=RD_SPC_EVENTS[event_at++];delta|=(v&127)<<shift;shift+=7;if(!(v&128))break;
+  if(event_at>=song->events->size||shift>28){error_code=2;event_left=0;event_clock=0xffffffffu;return;}
+  unsigned v=event_byte(event_at++);delta|=(v&127)<<shift;shift+=7;if(!(v&128))break;
  }
- if(event_at+2>sizeof(RD_SPC_EVENTS)){error_code=2;event_left=0;event_clock=0xffffffffu;return;}
- event_clock+=delta;event_reg=RD_SPC_EVENTS[event_at++];event_value=RD_SPC_EVENTS[event_at++];event_left--;
+ if(event_at+2>song->events->size){error_code=2;event_left=0;event_clock=0xffffffffu;return;}
+ event_clock+=delta;event_reg=event_byte(event_at++);event_value=event_byte(event_at++);event_left--;
 }
 static unsigned scaled_volume(unsigned value,unsigned percent){
  int v=(signed char)value;v=v*int(percent)/100;return (unsigned char)(v>127?127:v< -128?-128:v);
@@ -61,7 +53,7 @@ static void write_volume(unsigned reg,unsigned value){
 #ifdef RD_SPC_REFERENCE
  dsp.write(reg,value);
 #else
- unsigned lead=(reg<2&&regs[4]==34);dsp.write(reg,scaled_volume(value,lead?140:mix_request));
+ unsigned voice=reg>>4;unsigned lead=rd_spc_is_lead(voice,regs[voice*16+4]);dsp.write(reg,scaled_volume(value,lead?140:mix_request));
 #endif
 }
 static void refresh_mix(){
@@ -71,15 +63,17 @@ static void apply_event(){
  unsigned reg=event_reg,value=event_value;regs[reg]=value;
  if((reg&15)<2){write_volume(reg,value);return;}
 #ifndef RD_SPC_REFERENCE
- if(reg==0x4c&&(value&1)&&regs[4]==34){
-  while(manual_at<sizeof(RD_SPC_TARGETS)/sizeof(*RD_SPC_TARGETS)&&RD_SPC_TARGETS[manual_at].clock<event_clock)manual_at++;
-  if(manual_at<sizeof(RD_SPC_TARGETS)/sizeof(*RD_SPC_TARGETS)&&RD_SPC_TARGETS[manual_at].clock==event_clock){value&=~1u;suppressed++;}
-  else {gate_end=0;automatic++;dsp.write(0x5c,regs[0x5c]);}
+ if(reg==0x4c){
+  while(manual_at<song->target_count&&song->targets[manual_at].clock<event_clock)manual_at++;
+  for(unsigned voice=0;voice<8;voice++)if((value&(1u<<voice))&&rd_spc_is_lead(voice,regs[voice*16+4])){
+   if(manual_at<song->target_count&&song->targets[manual_at].clock==event_clock&&song->targets[manual_at].voice==voice){value&=~(1u<<voice);suppressed++;}
+   else {gate_end[voice]=0;automatic++;dsp.write(0x5c,regs[0x5c]);}
+  }
  }
- if(reg==0x5c&&gate_end&&clock_now<gate_end)value&=~1u;
+ if(reg==0x5c)for(unsigned voice=0;voice<8;voice++)if(gate_end[voice]&&clock_now<gate_end[voice])value&=~(1u<<voice);
 #endif
  dsp.write(reg,value);
- if(reg==4) {write_volume(0,regs[0]);write_volume(1,regs[1]);}
+ if((reg&15u)==4) {unsigned base=reg&0x70u;write_volume(base,regs[base]);write_volume(base+1,regs[base+1]);}
 }
 static void refill(){
  unsigned end=clock_now+1024;dsp.set_output(pcm,80);
@@ -88,9 +82,9 @@ static void refill(){
   if(event_clock>clock_now)dsp.run(event_clock-clock_now);
   clock_now=event_clock;apply_event();next_event();
  }
- if(gate_end&&gate_end<=end){
-  if(gate_end>clock_now){dsp.run(gate_end-clock_now);clock_now=gate_end;}
-  dsp.write(0x5c,regs[0x5c]|1);gate_end=0;
+ for(unsigned voice=0;voice<8;voice++)if(gate_end[voice]&&gate_end[voice]<=end){
+  if(gate_end[voice]>clock_now){dsp.run(gate_end[voice]-clock_now);clock_now=gate_end[voice];}
+  dsp.write(0x5c,regs[0x5c]|(1u<<voice));gate_end[voice]=0;
  }
  if(end>clock_now)dsp.run(end-clock_now);
  clock_now=end;pcm_count=dsp.sample_count()/2;pcm_at=0;
@@ -103,31 +97,33 @@ static void pair(int *p){if(pcm_at>=pcm_count)refill();p[0]=pcm[pcm_at*2];p[1]=p
 #endif
 }
 static void reset(){
- error_code=0;
+ song=&RD_SPC_SONGS[selected_song<RD_SPC_NSONG?selected_song:0];event_cache.owner=0;error_code=0;
  if(!unpack_ram()){error_code=1;active=0;return;}
- dsp.init(aram);dsp.load(RD_SPC_REGS);memcpy(regs,RD_SPC_REGS,128);
- event_at=16;event_clock=0;event_left=u32(RD_SPC_EVENTS+12);next_event();
- clock_now=pcm_at=pcm_count=phase=gate_end=manual_at=0;
+ dsp.init(aram);dsp.load(song->regs);memcpy(regs,song->regs,128);
+ event_at=16;event_clock=0;event_left=event_byte(12)|(event_byte(13)<<8)|(event_byte(14)<<16)|(event_byte(15)<<24);next_event();
+ clock_now=pcm_at=pcm_count=phase=manual_at=0;memset(gate_end,0,sizeof(gate_end));
  suppressed=automatic=hit_count=ready=0;hit_read=hit_write;
  native_pairs=last_hash=hash_second=0;native_hash=2166136261u;
  refresh_mix();
 }
+extern "C" void rd_spc_select(uint32_t index){if(index<RD_SPC_NSONG)selected_song=index;}
 extern "C" void rd_spc_init(){reset();active=0;}
 extern "C" void rd_spc_start(uint32_t frame,uint32_t speed){start_frame=frame;start_speed=speed?speed:100;pause_request=0;start_request++;}
 extern "C" void rd_spc_stop(){stop_request++;}
 extern "C" void rd_spc_pause(uint32_t paused){pause_request=paused;}
 extern "C" void rd_spc_mix(uint32_t backing){mix_request=backing>100?100:backing;}
 extern "C" void rd_spc_hit(uint32_t index){
- unsigned w=hit_write;if(w-hit_read>=32||index>=sizeof(RD_SPC_TARGETS)/sizeof(*RD_SPC_TARGETS))return;
+ unsigned w=hit_write;if(w-hit_read>=32||index>=song->target_count)return;
  hit_queue[w&31]=index;hit_write=w+1;
 }
 static void apply_hits(){
  while(hit_read!=hit_write){
-  const rd_spc_target &t=RD_SPC_TARGETS[hit_queue[hit_read&31]];hit_read++;
+  const rd_spc_target &t=song->targets[hit_queue[hit_read&31]];hit_read++;
 #ifndef RD_SPC_REFERENCE
-  dsp.write(0x5c,regs[0x5c]&~1u);
-  for(unsigned r=0;r<8;r++){if(r<2)write_volume(r,t.regs[r]);else dsp.write(r,t.regs[r]);}
-  dsp.write(0x4c,1);gate_end=clock_now+t.duration;hit_count++;
+  unsigned mask=1u<<t.voice,base=t.voice*16;
+  dsp.write(0x5c,regs[0x5c]&~mask);
+  for(unsigned r=0;r<8;r++)dsp.write(base+r,r<2?scaled_volume(t.regs[r],140):t.regs[r]);
+  dsp.write(0x4c,mask);gate_end[t.voice]=clock_now+t.duration;hit_count++;
 #else
   (void)t;
 #endif
@@ -142,7 +138,7 @@ extern "C" void rd_spc_render(int32_t *out,uint32_t frames,uint32_t now){
  apply_hits();
  for(unsigned i=0;i<frames;i++){
   if((int32_t)(now+i-start_frame)<0)continue;
-  if(clock_now>=151u*1024000u){active=0;break;}
+  if(clock_now>=song->duration){active=0;break;}
   if(!ready){pair(a);pair(b);ready=1;}
   int frac=int(phase*32768u/44100u);
   out[2*i]+=a[0]+((b[0]-a[0])*frac>>15);

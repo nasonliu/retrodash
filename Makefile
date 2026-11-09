@@ -6,6 +6,7 @@ test:
 
 project:
 	$(PY) tools/build_project.py projects/peaceful-days
+	$(PY) tools/pack_ui.py
 	$(PY) tools/gen_spc_firmware.py
 
 fw:

@@ -23,7 +23,7 @@ def source(path):
             z.extractall(root)
         yield root
 
-def build(root, song_data=None):
+def build(root, song_data=None, compact=False):
     root=Path(root).resolve()
     def path(name):
         p=(root/name).resolve()
@@ -86,6 +86,12 @@ def build(root, song_data=None):
                 for r,g,b,a in rgba.getdata():data.extend(struct.pack('<H',0xf81f if a<128 else rgb565(r,g,b)))
                 flags=int(transparent)
             else:raise ValueError('unsupported image encoding')
+            if compact and flags&6:
+                import lz4blk
+                palette_bytes=32 if flags&2 else 512
+                packed=lz4blk.compress(bytes(data[palette_bytes:]))
+                if len(packed)<len(data)-palette_bytes:
+                    data=data[:palette_bytes]+packed;flags|=8
         off=add(data);imgrows.append((w,h,off,len(data),flags))
     io=add(b''.join(struct.pack('<HHIII',*v) for v in imgrows))
     frows=[]
@@ -136,6 +142,12 @@ def build(root, song_data=None):
     if not 1000<=scene.get('approachMs',1800)<=3000:raise ValueError('approachMs must be 1000..3000')
     buf[:4]=b'CQP2'
     for n,v in enumerate(values):struct.pack_into('<I',buf,4+n*4,v)
+    enemy_clips=[cmap[actors[amap[skin['actor']]]['actions']['move']] for skin in scene['targetSkins']]
+    weather=scene.get('weather')
+    if weather not in (None,'blizzard'):raise ValueError('unsupported weather')
+    if len(enemy_clips)>1 or weather:
+        if not 1<=len(enemy_clips)<=16:raise ValueError('enemy skin count exceeded')
+        add(struct.pack('<'+'I'*len(enemy_clips),*enemy_clips)+struct.pack('<II',int(weather=='blizzard'),len(enemy_clips))+b'RDX1')
     if len(buf)>180*1024:raise ValueError('runtime project exceeds 180 KiB demo budget')
     struct.pack_into('<I',buf,8,len(buf));struct.pack_into('<I',buf,12,zlib.crc32(buf[HEADER:])&0xffffffff)
     return bytes(buf),{'title':m['title'],'bpm':bpm/100,'approachMs':scene.get('approachMs',1800),'bytes':len(buf),'melodyNotes':len(C),'backingNotes':sum(not n[5] and n[2]!=0 for n in B),'assistNotes':sum(not n[5] and n[2]==0 for n in B),'backingEvents':len(B),'keyOctaveShift':chart.get('melodyKeyOctaveShift',0),'images':len(images),'frames':len(frames),'clips':len(clips),'keyMap':mapping,'imageEncoding':'RGB565 / indexed4 / indexed8; transparent palette index0','extraImageDecodeRAM':0,'parallaxLayers':len(layerrows),'sceneCacheBytes':89280}

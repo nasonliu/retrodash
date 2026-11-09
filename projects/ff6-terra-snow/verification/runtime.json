@@ -1,0 +1,35 @@
+{
+  "song": "FF6 Opening Theme (part 3) / Terra snow march",
+  "durationSeconds": 115,
+  "manualTargets": 78,
+  "automaticMelodyFills": 7,
+  "pythonTests": 29,
+  "gameTests": {
+    "manualHits": 78,
+    "suppressedOriginalTriggers": 78,
+    "automaticFills": 7,
+    "fullCombo": true
+  },
+  "sceneTests": [
+    "alternating magitek/infantry",
+    "bounded scene extension",
+    "animated snow within battle viewport"
+  ],
+  "firmware": {
+    "applicationBytes": 571348,
+    "slotBytes": 581564,
+    "ramBytes": 37584,
+    "poolBytes": 331456,
+    "identity": "FM-1_91720101"
+  },
+  "offlinePCM": {
+    "equal": true,
+    "comparedStereoFrames": 3679996,
+    "skippedFullEmulatorLeadingFrames": 4,
+    "description": "Changed-write DSP-only replay vs full SPC emulation, exact PCM comparison"
+  },
+  "hardwareValidation": "pending; not flashed",
+  "preview": "actual shared host renderer, AUTO demonstration; not hardware recording",
+  "historicalSingleSongBuild": "0.1.1-beta",
+  "currentRelease": "0.2.0-beta dual-song; see docs/dual-song-validation.json"
+}

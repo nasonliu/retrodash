@@ -1,0 +1,449 @@
+{
+  "images": [
+    {
+      "id": "terra.0",
+      "path": "art/terra.0.png",
+      "encoding": "indexed4",
+      "paletteGroup": "terra"
+    },
+    {
+      "id": "terra.1",
+      "path": "art/terra.1.png",
+      "encoding": "indexed4",
+      "paletteGroup": "terra"
+    },
+    {
+      "id": "terra.2",
+      "path": "art/terra.2.png",
+      "encoding": "indexed4",
+      "paletteGroup": "terra"
+    },
+    {
+      "id": "terra.3",
+      "path": "art/terra.3.png",
+      "encoding": "indexed4",
+      "paletteGroup": "terra"
+    },
+    {
+      "id": "terra.4",
+      "path": "art/terra.4.png",
+      "encoding": "indexed4",
+      "paletteGroup": "terra"
+    },
+    {
+      "id": "terra.5",
+      "path": "art/terra.5.png",
+      "encoding": "indexed4",
+      "paletteGroup": "terra"
+    },
+    {
+      "id": "mech.0",
+      "path": "art/mech.0.png",
+      "encoding": "indexed4",
+      "paletteGroup": "imperial"
+    },
+    {
+      "id": "mech.1",
+      "path": "art/mech.1.png",
+      "encoding": "indexed4",
+      "paletteGroup": "imperial"
+    },
+    {
+      "id": "mech.2",
+      "path": "art/mech.2.png",
+      "encoding": "indexed4",
+      "paletteGroup": "imperial"
+    },
+    {
+      "id": "soldier.0",
+      "path": "art/soldier.0.png",
+      "encoding": "indexed4",
+      "paletteGroup": "imperial"
+    },
+    {
+      "id": "soldier.1",
+      "path": "art/soldier.1.png",
+      "encoding": "indexed4",
+      "paletteGroup": "imperial"
+    },
+    {
+      "id": "soldier.2",
+      "path": "art/soldier.2.png",
+      "encoding": "indexed4",
+      "paletteGroup": "imperial"
+    },
+    {
+      "id": "far",
+      "path": "art/far.png",
+      "encoding": "indexed8",
+      "paletteGroup": "scene"
+    },
+    {
+      "id": "village",
+      "path": "art/village.png",
+      "encoding": "indexed8",
+      "paletteGroup": "scene"
+    },
+    {
+      "id": "foreground",
+      "path": "art/foreground.png",
+      "encoding": "indexed4"
+    },
+    {
+      "id": "ground",
+      "path": "art/ground.png",
+      "encoding": "indexed4"
+    },
+    {
+      "id": "cover",
+      "path": "art/cover.png",
+      "encoding": "indexed4"
+    }
+  ],
+  "frames": [
+    {
+      "id": "terra.0",
+      "image": "terra.0",
+      "rect": [
+        0,
+        0,
+        112,
+        98
+      ],
+      "pivot": [
+        40,
+        98
+      ]
+    },
+    {
+      "id": "terra.1",
+      "image": "terra.1",
+      "rect": [
+        0,
+        0,
+        112,
+        98
+      ],
+      "pivot": [
+        40,
+        98
+      ]
+    },
+    {
+      "id": "terra.2",
+      "image": "terra.2",
+      "rect": [
+        0,
+        0,
+        112,
+        98
+      ],
+      "pivot": [
+        40,
+        98
+      ]
+    },
+    {
+      "id": "terra.3",
+      "image": "terra.3",
+      "rect": [
+        0,
+        0,
+        112,
+        98
+      ],
+      "pivot": [
+        40,
+        98
+      ]
+    },
+    {
+      "id": "terra.4",
+      "image": "terra.4",
+      "rect": [
+        0,
+        0,
+        112,
+        98
+      ],
+      "pivot": [
+        40,
+        98
+      ]
+    },
+    {
+      "id": "terra.5",
+      "image": "terra.5",
+      "rect": [
+        0,
+        0,
+        112,
+        98
+      ],
+      "pivot": [
+        40,
+        98
+      ]
+    },
+    {
+      "id": "mech.0",
+      "image": "mech.0",
+      "rect": [
+        0,
+        0,
+        88,
+        80
+      ],
+      "pivot": [
+        44,
+        80
+      ]
+    },
+    {
+      "id": "mech.1",
+      "image": "mech.1",
+      "rect": [
+        0,
+        0,
+        88,
+        80
+      ],
+      "pivot": [
+        44,
+        80
+      ]
+    },
+    {
+      "id": "mech.2",
+      "image": "mech.2",
+      "rect": [
+        0,
+        0,
+        88,
+        80
+      ],
+      "pivot": [
+        44,
+        80
+      ]
+    },
+    {
+      "id": "soldier.0",
+      "image": "soldier.0",
+      "rect": [
+        0,
+        0,
+        62,
+        52
+      ],
+      "pivot": [
+        31,
+        52
+      ]
+    },
+    {
+      "id": "soldier.1",
+      "image": "soldier.1",
+      "rect": [
+        0,
+        0,
+        62,
+        52
+      ],
+      "pivot": [
+        31,
+        52
+      ]
+    },
+    {
+      "id": "soldier.2",
+      "image": "soldier.2",
+      "rect": [
+        0,
+        0,
+        62,
+        52
+      ],
+      "pivot": [
+        31,
+        52
+      ]
+    }
+  ],
+  "clips": [
+    {
+      "id": "terra.run",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "terra.0",
+          "durationMs": 116
+        },
+        {
+          "frame": "terra.1",
+          "durationMs": 116
+        },
+        {
+          "frame": "terra.2",
+          "durationMs": 116
+        },
+        {
+          "frame": "terra.3",
+          "durationMs": 116
+        },
+        {
+          "frame": "terra.2",
+          "durationMs": 116
+        },
+        {
+          "frame": "terra.1",
+          "durationMs": 116
+        }
+      ]
+    },
+    {
+      "id": "terra.attack",
+      "loop": false,
+      "frames": [
+        {
+          "frame": "terra.0",
+          "durationMs": 55
+        },
+        {
+          "frame": "terra.4",
+          "durationMs": 55
+        },
+        {
+          "frame": "terra.5",
+          "durationMs": 55
+        },
+        {
+          "frame": "terra.4",
+          "durationMs": 55
+        },
+        {
+          "frame": "terra.0",
+          "durationMs": 55
+        }
+      ]
+    },
+    {
+      "id": "terra.miss",
+      "loop": false,
+      "frames": [
+        {
+          "frame": "terra.5",
+          "durationMs": 70
+        },
+        {
+          "frame": "terra.0",
+          "durationMs": 70
+        },
+        {
+          "frame": "terra.5",
+          "durationMs": 70
+        },
+        {
+          "frame": "terra.0",
+          "durationMs": 70
+        }
+      ]
+    },
+    {
+      "id": "terra.hold",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "terra.4",
+          "durationMs": 160
+        },
+        {
+          "frame": "terra.0",
+          "durationMs": 160
+        }
+      ]
+    },
+    {
+      "id": "terra.clear",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "terra.0",
+          "durationMs": 220
+        },
+        {
+          "frame": "terra.3",
+          "durationMs": 220
+        }
+      ]
+    },
+    {
+      "id": "mech.move",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "mech.0",
+          "durationMs": 145
+        },
+        {
+          "frame": "mech.1",
+          "durationMs": 145
+        },
+        {
+          "frame": "mech.2",
+          "durationMs": 145
+        },
+        {
+          "frame": "mech.1",
+          "durationMs": 145
+        }
+      ]
+    },
+    {
+      "id": "soldier.move",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "soldier.0",
+          "durationMs": 145
+        },
+        {
+          "frame": "soldier.1",
+          "durationMs": 145
+        },
+        {
+          "frame": "soldier.2",
+          "durationMs": 145
+        },
+        {
+          "frame": "soldier.1",
+          "durationMs": 145
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "id": "terra-magitek",
+      "actions": {
+        "run": "terra.run",
+        "attack": "terra.attack",
+        "miss": "terra.miss",
+        "hold": "terra.hold",
+        "clear": "terra.clear"
+      }
+    },
+    {
+      "id": "imperial-magitek",
+      "actions": {
+        "move": "mech.move"
+      }
+    },
+    {
+      "id": "imperial-soldier",
+      "actions": {
+        "move": "soldier.move"
+      }
+    }
+  ]
+}

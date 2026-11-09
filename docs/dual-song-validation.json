@@ -1,0 +1,57 @@
+{
+  "release": "0.2.0-beta",
+  "identity": "FM-1_91720102",
+  "hardwareStatus": "not flashed; user disconnected FM-1",
+  "applicationBytes": 548636,
+  "applicationLimit": 581564,
+  "ramBytes": 87104,
+  "ramLimit": 98304,
+  "poolBytes": 339664,
+  "poolLimit": 344064,
+  "pythonTests": 31,
+  "nativeChecks": 7,
+  "songs": [
+    {
+      "id": "peaceful-days-spc",
+      "durationSeconds": 151,
+      "manualTargets": 200,
+      "automaticFills": 2,
+      "hostFullCombo": true,
+      "scoreHash": 11849
+    },
+    {
+      "id": "ff6-terra-snow",
+      "durationSeconds": 115,
+      "manualTargets": 78,
+      "automaticFills": 7,
+      "hostFullCombo": true
+    }
+  ],
+  "preservation": {
+    "originalSongScoreHashUnchanged": true,
+    "settingsFormatUnchanged": true,
+    "flashLayoutUnchanged": true,
+    "extraUserStorageUsed": false,
+    "previousReleaseRetained": true
+  },
+  "losslessValidation": {
+    "images": "all project image bytes match after decompression",
+    "ui": "all UI pixels match after decompression",
+    "events": "all compressed event blocks match original bytes",
+    "dspRam": {
+      "peacefulDaysComparedStereoFrames": 4831996,
+      "ff6ComparedStereoFrames": 3679996,
+      "accuratePCMMatchesOriginal": true
+    }
+  },
+  "hostChecks": [
+    "both full songs manually played by simulated input",
+    "SELECT changes artwork and song",
+    "switching back and restarting original song",
+    "separate score identities",
+    "NEXT/THEN and KNOB1",
+    "bounded decoding",
+    "parallax and snowfall"
+  ],
+  "hardwareLimits": "Dual-song FPS, audio deadline/USB behavior and physical controls await real-device testing; previous single-song measurements do not establish new-release performance."
+}

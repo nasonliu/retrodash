@@ -4,8 +4,13 @@
 #undef main
 #include <assert.h>
 static void scalar(uint32_t image,int x,int y,int sx,int sy,int sw,int sh,int dw,int dh){
- const uint8_t *im=cq_image(image),*p=cq_data+cq_u32(im+4);int iw=(int)cq_u16(im);uint32_t tr=cq_u32(im+12)&1u;
+ const uint8_t *im=cq_image(image),*p=cq_data+cq_u32(im+4);uint8_t *decoded=0;
+ if(cq_u32(im+12)&8u){unsigned palette=cq_u32(im+12)&2u?32u:512u,pixels=cq_u16(im)*cq_u16(im+2),bytes=cq_u32(im+12)&2u?(pixels+1u)/2u:pixels;
+  decoded=malloc(palette+bytes);assert(decoded);memcpy(decoded,p,palette);assert(rd_unpack(p+palette,cq_u32(im+8)-palette,decoded+palette,bytes));p=decoded;
+ }
+ int iw=(int)cq_u16(im);uint32_t tr=cq_u32(im+12)&1u;
  for(int b=0;b<dh;b++)for(int a=0;a<dw;a++){int xx=x+a,yy=y+b;if(xx<0||xx>=240||yy<0||yy>=240)continue;uint32_t pixel=(sy+b*sh/dh)*iw+sx+a*sw/dw,codec=cq_u32(im+12)&6u;uint32_t index=codec==2?(p[32+pixel/2]>>((pixel%2)*4))&15u:codec==4?p[512+pixel]:0;uint16_t v=(uint16_t)cq_u16(p+(codec?index:pixel)*2);if(!tr||v!=0xf81f)cv_px[yy*240+xx]=swap16(cq_tint?cq_tint:v);}
+ free(decoded);
 }
 int main(void){
  cq_init_project();assert(cq_ready);uint16_t *expected=malloc(sizeof cv_px);assert(expected);

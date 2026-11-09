@@ -17,7 +17,7 @@ static void cq_impact(uint32_t ms,uint32_t clock,int floor){
   if(age<180u){
    int scale=256,xx=88+(int)age/7,yy=floor-(int)age/13;
    if(age<70u)cq_tint=0xffff;
-   cq_draw_clip_scaled(cq_get(104),clock,xx,yy,scale);cq_tint=0;
+   cq_draw_clip_scaled(cq_enemy_clip(kg.fx[at].note),clock,xx,yy,scale);cq_tint=0;
   }
   for(int i=0;i<8;i++){int x=88+dx[i]*(8+(int)age/14),y=floor-30+dy[i]*(8+(int)age/16),size=age<90?4:2;if(y>=28&&y<210)krect(x,y,size,size,age<70?RD_TEXT:RD_YELLOW);}
  }
@@ -68,6 +68,16 @@ static void cq_scroll_layers(int32_t pos,int foreground){
   }else for(uint32_t i=0;i<count;i++){const uint8_t *l=cq_data+cq_get(152)+i*16;if(cq_u32(l+12))cq_foreground(l,cq_layer_offset[i]);}
  }else if(!foreground)cq_blit_scaled(cq_get(108),0,28,60,36,119,92,240,186);
 }
+static void cq_snow(uint32_t clock){
+ if(!cq_weather())return;
+ /* Bounded native-pixel particles, no frame buffers or audio-clock changes. */
+ for(unsigned i=0;i<32;i++){
+  unsigned speed=18u+(i%4u)*9u,t=clock*speed/1000u;
+  int y=28+(int)((i*47u+t)%180u),x=(int)((i*73u+720u-(t*2u)%240u)%240u);
+  rgb_t c=i%3u?0xA6BBDD:RD_TEXT;krect(x,y,2,1,c);
+  if(i%3u==0&&x<237&&y>29)krect(x+2,y-1,2,1,c);
+ }
+}
 static void cq_stage(uint32_t ms,const uint8_t *lit,const char *right){
  static uint32_t last_t0,last_clock,clip_clock,last_actor,last_judge;
  int32_t i,next=-1,then=-1,first=-1;uint32_t actor=cq_get(84),age=ms-kg.judge_ms,ground=cq_get(112),floor=196,clock=0;char a[8],score[24];(void)lit;
@@ -83,10 +93,11 @@ static void cq_stage(uint32_t ms,const uint8_t *lit,const char *right){
  for(i=(int32_t)kg.first;i<(int32_t)kg.n;i++){
   const kf_cnote_t *n=&kg.notes[i];int x=cq_stage_x(n->t,kg.vpos);if(x>252)break;if(kg.nst[i]!=KN_PENDING&&kg.nst[i]!=KN_HELD)continue;if(kg.nst[i]==KN_HELD)x=88;if(x<74)continue;
   if(n->flags&1u){int end=cq_stage_x(n->t+n->len,kg.vpos);if(end>239)end=239;if(end>x)krect(x,(int)floor-18,end-x,3,RD_YELLOW);}
-  cq_draw_clip_scaled(cq_get(104),clock,x,(int)floor,256);
+  cq_draw_clip_scaled(cq_enemy_clip((uint32_t)i),clock,x,(int)floor,256);
   if(i==first){int width,xx;cq_pitch_name(n->pitch,a);width=cq_ui_width(1,a)+8;xx=x-width/2;if(xx+width>238)xx=238-width;krect(xx,(int)floor-78,width,16,RD_YELLOW);cq_ui_text(1,xx+4,(int)floor-76,a,RD_BG);}
  }
  cq_scroll_layers(kg.vpos,1);
+ cq_snow(clock);
  cq_impact(ms,clock,(int)floor);
  {int pulse=kg.pos>=0&&kg.pos%KG_BEAT<KG_BEAT/8;int hit=kg.judge&&kg.judge<=KJ_GOOD&&age<90u;
   krect(hit?85:87,(int)floor-78,hit?6:2,80,hit?RD_TEXT:pulse?RD_MINT:RD_YELLOW);krect(83,(int)floor-78,10,3,hit?RD_TEXT:RD_YELLOW);

@@ -1,7 +1,12 @@
 /* SPDX-License-Identifier: GPL-3.0-only: RetroDash universal UI, independent of song art. */
 #pragma once
 #include "cq_ui_font.h"
+#ifdef RD_COMPACT
+#include "rd_assets_packed.h"
+static rd_block_cache_t rd_ui_cache __attribute__((section(".pool")));
+#else
 #include "rd_assets.h"
+#endif
 #define RD_BG 0x180c29u
 #define RD_YELLOW 0xffef19u
 #define RD_PINK 0xff36a7u
@@ -19,14 +24,25 @@ static void cq_ui_text(unsigned font,int x,int y,const char *s,rgb_t color){
 }
 static void rd_center(unsigned f,int x,int y,const char *s,rgb_t c){cq_ui_text(f,x-cq_ui_width(f,s)/2,y,s,c);}
 static void rd_right(unsigned f,int x,int y,const char *s,rgb_t c){cq_ui_text(f,x-cq_ui_width(f,s),y,s,c);}
-static void rd_asset(const uint16_t *p,int w,int h,int x,int y,int dw,int dh){
+#ifdef RD_COMPACT
+static void rd_asset(const rd_blocks_t *p,
+#else
+static void rd_asset(const uint16_t *p,
+#endif
+int w,int h,int x,int y,int dw,int dh){
  int a,b,left=x<0?-x:0,right=dw,top=y<0?-y:0,bottom=dh;uint16_t xm[240];
  if(dw<=0||dh<=0)return;
  if(x+right>240)right=240-x;
  if(y+bottom>240)bottom=240-y;
  if(left>=right||top>=bottom)return;
  for(a=left;a<right;a++)xm[a-left]=(uint16_t)(a*w/dw);
- for(b=top;b<bottom;b++){const uint16_t *row=p+b*h/dh*w;uint16_t *out=cv_px+(y+b)*240+x+left;for(a=0;a<right-left;a++){uint16_t v=row[xm[a]];if(v!=0xf81f)out[a]=swap16(v);}}
+ for(b=top;b<bottom;b++){uint32_t row=(uint32_t)(b*h/dh*w);uint16_t *out=cv_px+(y+b)*240+x+left;for(a=0;a<right-left;a++){
+#ifdef RD_COMPACT
+ uint32_t at=(row+xm[a])*2u;uint16_t v=rd_block_byte(p,&rd_ui_cache,at)|(uint16_t)rd_block_byte(p,&rd_ui_cache,at+1)<<8;
+#else
+ uint16_t v=p[row+xm[a]];
+#endif
+if(v!=0xf81f)out[a]=swap16(v);}}
 }
 static void rd_background(void){rd_asset(RD_BG_DATA,240,240,0,0,240,240);}
 /* Flat panels are controls and separators; branded ring/burst/logo remain real raster assets. */

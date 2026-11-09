@@ -48,7 +48,7 @@ typedef struct {
     int32_t pos;                                 /* where the song is (update): what is heard, what is judged */
     int32_t vpos;                                /* where it is drawn: pos, or a little ahead of it (vavehero.c) */
     uint8_t done, auto_on, midi_used;
-    struct { uint8_t lane, big; uint32_t ms; } fx[8];   /* bursts at the line: big a hit, else a hold done (green) */
+    struct { uint8_t lane, big; uint16_t note; uint32_t ms; } fx[8];   /* bursts at the line: big a hit, else a hold done (green) */
     uint32_t nfx;
     /* the result */
     int32_t acc10, grade, new_best, full, total;
@@ -137,7 +137,7 @@ static void kg_hit(uint32_t i, int32_t dt, uint32_t key)
     kg.score += BASE[j] * kg_mult() * (kg_boosting() ? 2 : 1);
     kg_set_judge((uint32_t)j);
     KG_HIT_FEEDBACK(i,j);
-    kg.fx[kg.nfx % 8u].lane = kg.notes[i].lane; kg.fx[kg.nfx % 8u].big = 1;
+    kg.fx[kg.nfx % 8u].note = (uint16_t)i; kg.fx[kg.nfx % 8u].lane = kg.notes[i].lane; kg.fx[kg.nfx % 8u].big = 1;
     kg.fx[kg.nfx % 8u].ms = kg_ms; kg.nfx++;
     if (kg.notes[i].flags & 1u) { kg.nst[i] = KN_HELD; if (key < 27u) kg.held[key] = (int16_t)i; }
     else kg.nst[i] = KN_HIT;
@@ -161,7 +161,7 @@ static void kg_hold_end(uint32_t i, int32_t frac)   /* frac Q12 */
     kg.nst[i] = frac >= 3687 ? KN_DONE : KN_BROKEN;     /* .9 */
     kg.score += kg_round(50 * frac * kg_mult() * (kg_boosting() ? 2 : 1), 4096);
     if (kg.nst[i] == KN_DONE) {
-        kg.fx[kg.nfx % 8u].lane = kg.notes[i].lane; kg.fx[kg.nfx % 8u].big = 0;
+        kg.fx[kg.nfx % 8u].note = (uint16_t)i; kg.fx[kg.nfx % 8u].lane = kg.notes[i].lane; kg.fx[kg.nfx % 8u].big = 0;
         kg.fx[kg.nfx % 8u].ms = kg_ms; kg.nfx++;
     }
     for (k = 0; k < 27u; k++) if (kg.held[k] == (int16_t)i) kg.held[k] = -1;

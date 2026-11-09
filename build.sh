@@ -11,7 +11,7 @@ export JIELI_TOOLCHAIN="${JIELI_TOOLCHAIN:-$HOME/.jieli/toolchain}"
 export AC79_SDK="${AC79_SDK:-$HOME/fw-AC79_AIoT_SDK}"
 PY="${PYTHON:-python3}"
 if [ "${DINGHY_DEFS+x}" != x ]; then
-    DINGHY_DEFS="-DRD_SPC -DRD_SPC_FAST"
+    DINGHY_DEFS="-DRD_SPC -DRD_SPC_FAST -DRD_COMPACT"
 fi
 export DINGHY_DEFS
 

@@ -2,12 +2,20 @@
  * Read-only, bounded CQP2 view: the same bundle contains notes, accompaniment and artwork. */
 #pragma once
 #include <stddef.h>
+#include "rd_pack.h"
 #ifdef RD_SPC
 #include "cq_spc_demo.h"
 #else
 #include "cq_demo.h"
 #endif
-#define CQ_SLOT (KF_NSONG - 1u)
+#define CQ_SLOT cq_selected
+#ifdef RD_SPC
+static uint32_t cq_selected;
+#else
+static uint32_t cq_selected=KF_NSONG-1u;
+#endif
+static uint8_t cq_decode_buffer[240*240];
+static const uint8_t *cq_decode_owner;
 #define CQ_LIMIT (180u * 1024u)
 static const uint8_t *cq_data;
 static uint32_t cq_size;
@@ -33,7 +41,10 @@ static int cq_open(const uint8_t *p,uint32_t size,kf_song_t *out) {
         for(j=0;j<i;j++){const uint8_t *prev=p+co+j*8;if(prev[5]==r[5]&&prev[6]!=r[6])return 0;}}
     for(i=0;i<nb;i++){const uint8_t *r=p+bo+i*8;if(!cq_u16(r+2)||r[4]>6||r[5]>127||r[6]>127||r[7]>(r[4]==0?5:4)||(i&&cq_u16(r)<cq_u16(r-8)))return 0;}
     for(i=0;i<ni;i++){const uint8_t *r=p+io+i*16;uint32_t w=cq_u16(r),h=cq_u16(r+2),off=cq_u32(r+4);uint32_t flags=cq_u32(r+12),codec=flags&6u,bytes=codec==2?32u+(w*h+1u)/2u:codec==4?512u+w*h:w*h*2u;
-     if(!w||w>240||!h||h>240||flags>5||codec==6||cq_u32(r+8)!=bytes||!cq_range(off,bytes,1,size))return 0;}
+     if(!w||w>240||!h||h>240||(flags&~15u)||codec==6)return 0;
+     if(flags&8u){uint32_t pal=codec==2u?32u:512u,packed=cq_u32(r+8);cq_decode_owner=0;
+      if(!codec||packed<=pal||!cq_range(off,packed,1,size)||!rd_unpack(p+off+pal,packed-pal,cq_decode_buffer,bytes-pal))return 0;
+     }else if(cq_u32(r+8)!=bytes||!cq_range(off,bytes,1,size))return 0;}
     for(i=0;i<nf;i++){const uint8_t *r=p+fo+i*16;uint32_t image=cq_u32(r),x=cq_u16(r+4),y=cq_u16(r+6),w=cq_u16(r+8),h=cq_u16(r+10);const uint8_t *im;if(image>=ni||!w||!h)return 0;im=p+io+image*16;if(x+w>cq_u16(im)||y+h>cq_u16(im+2)||cq_u16(r+12)>w||cq_u16(r+14)>h)return 0;}
     for(i=0;i<nc;i++){const uint8_t *r=p+clo+i*8;uint32_t first=cq_u32(r),n=cq_u16(r+4);if(!n||first>ns||n>ns-first||cq_u16(r+6)>1)return 0;}
     for(i=0;i<ns;i++){const uint8_t *r=p+sto+i*4;if(cq_u16(r)>=nf||!cq_u16(r+2)||cq_u16(r+2)>2000)return 0;}
@@ -54,28 +65,63 @@ static int cq_open(const uint8_t *p,uint32_t size,kf_song_t *out) {
      }else{const uint8_t *bg=p+io+cq_u32(p+108)*16;if(cq_u16(bg)!=240||cq_u16(bg+2)!=128||cq_u32(p+136)<120||cq_u32(p+136)>156)return 0;}
     }
     if(cq_u32(p+148) && (cq_u32(p+148)<1000||cq_u32(p+148)>3000))return 0;
+    /* Optional scene footer: clip IDs, weather, count, RDX1. Old bundles have no footer. */
+    if(size>=172u&&cq_u32(p+size-4)==0x31584452u){
+     uint32_t count=cq_u32(p+size-8),off;
+     if(!count||count>16u||size<172u+count*4u||cq_u32(p+size-12)>1u)return 0;
+     off=size-12u-count*4u;if(!cq_range(off,count,4,size))return 0;
+     for(i=0;i<count;i++)if(cq_u32(p+off+i*4)>=nc)return 0;
+    }
     song.title=(const char *)p+cq_u32(p+16);song.file=(const char *)p+cq_u32(p+20);song.bpm_x100=cq_u32(p+24);song.fpt_q16=cq_u32(p+28);song.end=(uint16_t)cq_u32(p+32);song.transpose=127; song.level=0;song.hash=(uint16_t)(cq_u32(p+140)&0x3fffu);
     song.chart=(const kf_cnote_t *)(p+co);song.nchart=(uint16_t)nn;song.band=(const kf_bev_t *)(p+bo);song.nband=(uint16_t)nb;
     *out=song;return 1;
 }
-static void cq_init_project(void) {
-    const uint8_t *p=CQ_DEMO_DATA;uint32_t n=sizeof(CQ_DEMO_DATA);
-#ifdef DINGHY_HOST
-    static uint32_t external[CQ_LIMIT/4];
-    const char *file=getenv("CQ_PROJECT");
-    if(file && *file){FILE *f=fopen(file,"rb");size_t count;if(!f){fprintf(stderr,"cannot open CQ_PROJECT\n");exit(2);}count=fread(external,1,sizeof(external),f);if(fgetc(f)!=EOF){fclose(f);exit(2);}fclose(f);p=(const uint8_t *)external;n=(uint32_t)count;}
+static int cq_select_project(uint32_t index){
+ if(index>=KF_NSONG)return 0;
+#ifdef RD_SPC
+ const uint8_t *p=CQ_PROJECTS[index].bytes;uint32_t n=CQ_PROJECTS[index].size;
+#else
+ const uint8_t *p=CQ_DEMO_DATA;uint32_t n=sizeof(CQ_DEMO_DATA);
 #endif
-    cq_ready=cq_open(p,n,&KF_SONG[CQ_SLOT]);
-    if(cq_ready){cq_data=p;cq_size=n;}
 #ifdef DINGHY_HOST
-    if(!cq_ready){fprintf(stderr,"CQP2 rejected\n");exit(2);}
+ static uint32_t external[CQ_LIMIT/4];const char *file=getenv("CQ_PROJECT");
+ if(file&&*file){FILE *f=fopen(file,"rb");size_t count;if(!f)return 0;count=fread(external,1,sizeof(external),f);if(fgetc(f)!=EOF){fclose(f);return 0;}fclose(f);p=(const uint8_t *)external;n=(uint32_t)count;}
+#endif
+ if(!cq_open(p,n,&KF_SONG[index]))return 0;cq_data=p;cq_size=n;cq_selected=index;return 1;
+}
+static void cq_init_project(void) {
+ cq_ready=1;
+#ifdef RD_SPC
+ for(uint32_t i=0;i<KF_NSONG;i++)if(!cq_select_project(i))cq_ready=0;
+#endif
+#ifdef RD_SPC
+ if(!cq_select_project(0))cq_ready=0;
+#else
+ if(!cq_select_project(KF_NSONG-1u))cq_ready=0;
+#endif
+#ifdef DINGHY_HOST
+ if(!cq_ready){fprintf(stderr,"CQP2 rejected\n");exit(2);}
 #endif
 }
+
 static uint32_t cq_get(uint32_t at){return cq_u32(cq_data+at);}
+static uint32_t cq_scene_extension(void){return cq_size>=172u&&cq_u32(cq_data+cq_size-4)==0x31584452u;}
+static uint32_t cq_enemy_clip(uint32_t note){
+ if(cq_scene_extension()){uint32_t count=cq_u32(cq_data+cq_size-8);return cq_u32(cq_data+cq_size-12-count*4+(note%count)*4);}
+ return cq_get(104);
+}
+static uint32_t cq_weather(void){return cq_scene_extension()?cq_u32(cq_data+cq_size-12):0;}
 static const uint8_t *cq_image(uint32_t i){return cq_data+cq_get(52)+i*16;}
 typedef struct {const uint16_t *pixels,*palette;const uint8_t *indices;uint32_t codec,transparent;} cq_pixels_t;
 static cq_pixels_t cq_pixels(const uint8_t *im){
- const uint8_t *p=cq_data+cq_u32(im+4);uint32_t flags=cq_u32(im+12);cq_pixels_t v={(const uint16_t *)p,(const uint16_t *)p,p+(flags&2u?32:512),flags&6u,flags&1u};return v;
+ const uint8_t *p=cq_data+cq_u32(im+4);uint32_t flags=cq_u32(im+12),pal=flags&2u?32u:512u;
+ cq_pixels_t v={(const uint16_t *)p,(const uint16_t *)p,p+pal,flags&6u,flags&1u};
+ if(flags&8u){
+  if(cq_decode_owner!=im){uint32_t pixels=cq_u16(im)*cq_u16(im+2),raw=flags&2u?(pixels+1u)/2u:pixels;
+   if(!rd_unpack(p+pal,cq_u32(im+8)-pal,cq_decode_buffer,raw))memset(cq_decode_buffer,0,raw);cq_decode_owner=im;
+  }v.indices=cq_decode_buffer;
+ }
+ return v;
 }
 static inline uint16_t cq_pixel(cq_pixels_t v,uint32_t i){
  if(v.codec==2u){uint32_t index=v.indices[i>>1]>>((i&1u)*4u);return v.palette[index&15u];}

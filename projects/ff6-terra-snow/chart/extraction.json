@@ -1,0 +1,30 @@
+{
+  "title": "TERRA SNOW MARCH",
+  "id": "retrodash.ff6.terra-snow",
+  "bpm": 79.85,
+  "keyOctaveShift": 0,
+  "melodyParts": [
+    {
+      "voice": 0,
+      "srcn": 32,
+      "endSeconds": 84
+    },
+    {
+      "voice": 4,
+      "srcn": 35,
+      "startSeconds": 84
+    }
+  ],
+  "pitchCalibration": {
+    "32": {
+      "dspPitch": 2408,
+      "midiPitch": 67
+    },
+    "35": {
+      "dspPitch": 1807,
+      "midiPitch": 55
+    }
+  },
+  "pitchCalibrationStatus": "BRR loop fundamental: SRCN32 48-sample loop at G4 (2408/4096); SRCN35 144-sample loop with two fundamental periods at G3 (1807/4096). Nearest semitone for physical keys; original DSP pitch retained.",
+  "chordSelection": "lowest: final brass dyads use lower voice 4; voice 5 plays automatically"
+}

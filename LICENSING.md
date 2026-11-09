@@ -42,4 +42,4 @@ RetroDash game/UI integration, SPC project tools, tests and hardware fixes are G
 
 - `firmware/vendor/snes_spc/` and `projects/peaceful-days-spc/vendor/snes_spc/`: snes_spc by Shay Green, LGPL-2.1-or-later, with the original notices and licence included.
 - Barlow Condensed: SIL OFL 1.1 (`assets/BarlowCondensed-OFL.txt`). Other bundled font licences remain alongside their assets.
-- User-supplied Chrono Trigger SPC/MIDI, original BRR samples, character references and theme media are not covered by the code's GPL licence. Original music/character rights remain with their respective owners. No ownership of Square Enix/Nintendo content or endorsement is claimed.
+- User-supplied Chrono Trigger SPC/MIDI and Final Fantasy VI SPC, original BRR samples, character references and theme media are not covered by the code's GPL licence. Original music/character rights remain with their respective owners. No ownership of Square Enix/Nintendo content or endorsement is claimed.

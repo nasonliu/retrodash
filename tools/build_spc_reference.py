@@ -122,13 +122,60 @@ def notes_from_events(events, initial, end):
     return sorted(notes, key=lambda n: (n['clock'], n['voice']))
 
 
+DEFAULT_CONFIG = dict(title='PEACEFUL DAYS', id='retrodash.chrono-trigger.peaceful-days.spc',
+    bpm=87.27, keyOctaveShift=-2,
+    melodyParts=[dict(voice=0,srcn=34)],
+    pitchCalibration={'33':dict(dspPitch=4549,midiPitch=78),
+                      '34':dict(dspPitch=3430,midiPitch=78)},
+    pitchCalibrationStatus='aligned to supplied MIDI')
+
+
+def make_chart(notes, config):
+    chart, assist, previous = [], [], -10**10
+    bpm, minimum_beats = config['bpm'], 0.5
+    calibration = config['pitchCalibration']
+    parts = config['melodyParts']
+    shift = config.get('keyOctaveShift', 0)
+    for index, n in enumerate(notes):
+        seconds = n['clock'] / 1024000
+        if not any(n['voice']==part['voice'] and n['srcn']==part['srcn']
+                   and part.get('startSeconds',0)<=seconds<part.get('endSeconds',601)
+                   for part in parts):
+            continue
+        cal = calibration[str(n['srcn'])]
+        pitch = cal['midiPitch'] + round(12*math.log2(n['pitch']/cal['dspPitch']))
+        physical = pitch + shift * 12
+        if not 53 <= physical <= 79:
+            raise ValueError('melody pitch outside physical FM-1 keys')
+        target = dict(noteIndex=index,voice=n['voice'],clock=n['clock'],gateEndClock=n['gateEndClock'],
+            srcn=n['srcn'],dspPitch=n['pitch'],soundingMidiPitch=pitch,
+            keyMidiPitch=physical,keyIndex=physical-53)
+        bucket = round(seconds*bpm/60/minimum_beats)
+        if bucket > previous:
+            chart.append(target)
+            previous=bucket
+        else:
+            assist.append(target)
+    if not chart or len(chart)>400:
+        raise ValueError('manual chart must contain 1..400 targets')
+    return dict(format='retrodash-spc-chart',version=1,clockHz=1024000,
+        manualVoice=parts[0]['voice'],manualSrcn=parts[0]['srcn'],melodyParts=parts,bpm=bpm,
+        minimumTapBeats=minimum_beats,minimumNoteValue='1/8',mergeGrid='eighth-note',
+        keyOctaveShift=shift,nextThenOnly=True,autoAccompanimentLights=False,
+        pitchCalibration=calibration,
+        pitchCalibrationStatus=config.get('pitchCalibrationStatus','sample loop fundamental'),
+        targets=chart,automaticMelodyFills=assist)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('spc', type=Path)
     p.add_argument('--emulator-dir', type=Path, required=True)
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--work', type=Path, required=True)
+    p.add_argument('--config',type=Path,help='song-specific melody parts and pitch calibration JSON')
     a = p.parse_args()
+    config = json.loads(a.config.read_text()) if a.config else DEFAULT_CONFIG
     data = a.spc.read_bytes()
     if len(data) < 0x10200 or not data.startswith(b'SNES-SPC700 Sound File Data v0.30'):
         raise ValueError('expected an SPC v0.30 snapshot')
@@ -183,43 +230,12 @@ def main():
             loopSampleOffset=((loop-start)&65535)//9*16,
             brr=f'samples/{name}.brr',preview=f'samples/{name}.wav'))
     save_json(out/'audio/samples.json',sample_meta)
-    # Pitch calibration for this file: the two melody instruments both play
-    # F#5 at these native pitch-register values. Other voices retain raw DSP
-    # pitch; do not pretend an SRCN is a General MIDI program number.
-    calibration = {33: (4549,78),34: (3430,78)}
-    chart, assist, previous = [], [], -10**10
-    bpm, minimum_beats = 87.27, 0.5
-    for index,n in enumerate(notes):
-        # SRCN 0x21 is the opening harp accompaniment; the playable lead is
-        # voice 0 / SRCN 0x22, beginning around 8.25 s in this snapshot.
-        if n['voice'] != 0 or n['srcn'] != 34:
-            continue
-        root, midi = calibration[n['srcn']]
-        pitch = midi + round(12*math.log2(n['pitch']/root))
-        physical = pitch - 24
-        if not 53 <= physical <= 79:
-            raise ValueError('melody pitch outside physical FM-1 keys')
-        target = dict(noteIndex=index,clock=n['clock'],gateEndClock=n['gateEndClock'],
-            srcn=n['srcn'],dspPitch=n['pitch'],soundingMidiPitch=pitch,
-            keyMidiPitch=physical,keyIndex=physical-53)
-        # Compare musical eighth-note positions so SPC timer jitter does not
-        # accidentally merge ordinary eighth notes. Keep original DSP clocks.
-        bucket = round(n['clock']/1024000*bpm/60/minimum_beats)
-        if bucket > previous:
-            chart.append(target)
-            previous=bucket
-        else:
-            assist.append(target)
-    save_json(out/'chart/chart.json',dict(format='retrodash-spc-chart',version=1,
-        clockHz=1024000,manualVoice=0,manualSrcn=34,bpm=bpm,
-        minimumTapBeats=minimum_beats,minimumNoteValue='1/8',mergeGrid='eighth-note',
-        keyOctaveShift=-2,nextThenOnly=True,autoAccompanimentLights=False,
-        pitchCalibration={str(k):dict(dspPitch=v[0],midiPitch=v[1]) for k,v in calibration.items()},
-        pitchCalibrationStatus='aligned to melody pitches in supplied MIDI; verify by listening',
-        targets=chart,automaticMelodyFills=assist))
+    chart_data=make_chart(notes,config)
+    chart=chart_data['targets'];assist=chart_data['automaticMelodyFills']
+    save_json(out/'chart/chart.json',chart_data)
     revision = subprocess.check_output(['git','-C',str(a.emulator_dir),'rev-parse','HEAD'],text=True).strip()
-    metadata = dict(format='retrodash-spc-project',version=1,title='PEACEFUL DAYS',
-        id='retrodash.chrono-trigger.peaceful-days.spc',
+    metadata = dict(format='retrodash-spc-project',version=1,title=config['title'],
+        id=config['id'],
         runtimeStatus='offline-verified; not supported by current CQP firmware loader',
         source='music/source.spc',audio=dict(engine='sfc-dsp-event-replay',clockHz=1024000,
         sampleRate=32000,channels=2,aram='audio/aram.bin',registers='audio/dsp-registers.bin',
@@ -228,7 +244,7 @@ def main():
         credits='licenses/credits.txt',durationSeconds=seconds,
         sourceTags=dict(title=data[0x2e:0x4e].split(b'\0')[0].decode(),
             game=data[0x4e:0x6e].split(b'\0')[0].decode(),
-            artist=data[0xb1:0xd1].split(b'\0')[0].decode(),fadeMilliseconds=int(data[0xac:0xb1])),
+            artist=data[0xb1:0xd1].split(b'\0')[0].decode(),fadeMilliseconds=int(data[0xac:0xb1].rstrip(b'\0 ') or b'0')),
         emulator=dict(repository='https://github.com/blarggs-audio-libraries/snes_spc',revision=revision))
     save_json(out/'manifest.json',metadata)
     counts=collections.Counter(n['voice'] for n in notes)

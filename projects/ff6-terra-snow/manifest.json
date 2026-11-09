@@ -1,0 +1,46 @@
+{
+  "format": "retrodash-spc-project",
+  "version": 1,
+  "title": "TERRA SNOW MARCH",
+  "id": "retrodash.ff6.terra-snow",
+  "runtimeStatus": "embedded SPC backend; offline validated, FM-1 hardware test pending",
+  "source": "music/source.spc",
+  "audio": {
+    "engine": "sfc-dsp-event-replay",
+    "clockHz": 1024000,
+    "sampleRate": 32000,
+    "channels": 2,
+    "aram": "audio/aram.bin",
+    "registers": "audio/dsp-registers.bin",
+    "events": "audio/events.sde",
+    "samples": "audio/samples.json",
+    "notes": "audio/voices.json"
+  },
+  "chart": "chart/chart.json",
+  "art": "art/art.json",
+  "scene": "scene/scene.json",
+  "coverImage": "cover",
+  "credits": "licenses/credits.txt",
+  "durationSeconds": 115,
+  "sourceTags": {
+    "title": "Opening Theme (part 3)",
+    "game": "Final Fantasy 6",
+    "artist": "Nobuo Uematsu",
+    "fadeMilliseconds": 0
+  },
+  "emulator": {
+    "repository": "https://github.com/blarggs-audio-libraries/snes_spc",
+    "revision": "8835ef96ea2a4ca688b593e869b08766876589ce"
+  },
+  "runtime": {
+    "backend": "snes_spc fast S-DSP",
+    "outputRate": 44100,
+    "loading": "embedded at firmware build time",
+    "minimumNoteValue": "1/8",
+    "defaultVisualScrollPercent": 100,
+    "visualScrollRange": [
+      50,
+      200
+    ]
+  }
+}

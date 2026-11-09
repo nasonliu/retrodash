@@ -270,7 +270,10 @@ static void voices_off(void)
 }
 static void song_start(uint32_t idx, uint32_t is_demo)
 {
-    if (idx == CQ_SLOT && !cq_ready) return;
+    if (!cq_ready || !cq_select_project(idx)) return;
+#ifdef RD_SPC
+    rd_spc_select(idx);
+#endif
     voices_off();
     demo = is_demo;
     kg_start(idx, is_demo ? 100u : set.speed, is_demo ? 0u : set.spread, kf_now + 6615u);   /* beat 0 in 150 ms */
@@ -552,6 +555,7 @@ static void rd_controls(uint32_t b,uint32_t *changed){
   }else rd_setting_sel=rd_wrap(rd_setting_sel,e,4);
  }else if(scr==SCR_HELP){if(b&((1u<<BTN_PLAY)|(1u<<BTN_HOME)))scr=SCR_MAIN;}
  else if(scr==SCR_SONGS){
+  if(e&&KF_NSONG>1){uint32_t choice=(uint32_t)rd_wrap(CQ_SLOT,e,KF_NSONG);if(cq_select_project(choice)){set.sel=(uint8_t)choice;*changed=1;}}
   if(b&(1u<<BTN_HOME))scr=SCR_MAIN;
   else if(b&(1u<<BTN_PLAY))song_start(CQ_SLOT,0);
   if(b&(1u<<BTN_SEQ))autoplay^=1u;
@@ -585,7 +589,8 @@ static void app_main(void)
     rd_scroll_speed=set.scroll;
     rd_volume=set.pad0;
     cq_init_project();
-    set.sel = CQ_SLOT;
+    if(set.sel>=KF_NSONG)set.sel=0;
+    cq_select_project(set.sel);
     offset_ms = set.offset;
     kf_init();
     kf_set_grit(set.grit);

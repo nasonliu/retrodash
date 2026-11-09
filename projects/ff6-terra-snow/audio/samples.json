@@ -1,0 +1,68 @@
+[
+  {
+    "srcn": 32,
+    "startAddress": 39825,
+    "loopAddress": 41319,
+    "brrBytes": 1521,
+    "decodedSamples": 2704,
+    "loopEnabled": true,
+    "loopSampleOffset": 2656,
+    "brr": "samples/srcn-20.brr",
+    "preview": "samples/srcn-20.wav"
+  },
+  {
+    "srcn": 33,
+    "startAddress": 20826,
+    "loopAddress": 21627,
+    "brrBytes": 9414,
+    "decodedSamples": 16736,
+    "loopEnabled": true,
+    "loopSampleOffset": 1424,
+    "brr": "samples/srcn-21.brr",
+    "preview": "samples/srcn-21.wav"
+  },
+  {
+    "srcn": 34,
+    "startAddress": 18765,
+    "loopAddress": 19692,
+    "brrBytes": 954,
+    "decodedSamples": 1696,
+    "loopEnabled": true,
+    "loopSampleOffset": 1648,
+    "brr": "samples/srcn-22.brr",
+    "preview": "samples/srcn-22.wav"
+  },
+  {
+    "srcn": 35,
+    "startAddress": 41346,
+    "loopAddress": 43398,
+    "brrBytes": 2133,
+    "decodedSamples": 3792,
+    "loopEnabled": true,
+    "loopSampleOffset": 3648,
+    "brr": "samples/srcn-23.brr",
+    "preview": "samples/srcn-23.wav"
+  },
+  {
+    "srcn": 36,
+    "startAddress": 43479,
+    "loopAddress": 43479,
+    "brrBytes": 2250,
+    "decodedSamples": 4000,
+    "loopEnabled": false,
+    "loopSampleOffset": 0,
+    "brr": "samples/srcn-24.brr",
+    "preview": "samples/srcn-24.wav"
+  },
+  {
+    "srcn": 37,
+    "startAddress": 45729,
+    "loopAddress": 46674,
+    "brrBytes": 1161,
+    "decodedSamples": 2064,
+    "loopEnabled": true,
+    "loopSampleOffset": 1680,
+    "brr": "samples/srcn-25.brr",
+    "preview": "samples/srcn-25.wav"
+  }
+]

@@ -7,8 +7,8 @@
 #include "rd_spc.h"
 #define KF_FS 44100u
 #define KF_NV 1u
+#define kf_sine KF_SINE
 static struct {unsigned state;} kf_v[KF_NV];
-static int16_t kf_sine[4096];
 static volatile uint32_t kf_now;
 static int32_t kf_gp=5734,kf_gb=1228;
 enum{KF_EV_ON=1,KF_EV_OFF,KF_EV_DRUM,KF_EV_ALLOFF,KF_EV_KILL};
@@ -26,4 +26,4 @@ static void kf_set_mix(int32_t m){(void)m;}
 static void kf_set_game_balance(uint32_t b){kf_gb=(int32_t)(b*4096/100);rd_spc_mix(b);}
 static int32_t kf_sat16(int32_t x){return x>32767?32767:x< -32768?-32768:x;}
 static void kf_render(int32_t *out,uint32_t n){rd_spc_render(out,n,kf_now);kf_now+=n;}
-static void kf_init(void){for(unsigned i=0;i<4096;i++)kf_sine[i]=KF_SINE[i];rd_spc_init();}
+static void kf_init(void){rd_spc_init();}

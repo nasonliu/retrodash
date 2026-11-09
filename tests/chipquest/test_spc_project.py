@@ -29,3 +29,19 @@ class SPCProjectTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+class SceneExtensionsTests(unittest.TestCase):
+    def test_two_enemy_types_and_blizzard_are_packed(self):
+        import struct
+        with tempfile.TemporaryDirectory() as tmp:
+            project=Path(tmp)/'song'
+            shutil.copytree(ROOT/'projects/peaceful-days-spc',project,
+                            ignore=shutil.ignore_patterns('verification','vendor','tools','audio','music'))
+            scene_path=project/'scene/scene.json'
+            scene=json.loads(scene_path.read_text())
+            scene['targetSkins'].append(dict(id='second',actor='blue-imp'))
+            scene['weather']='blizzard'
+            scene_path.write_text(json.dumps(scene))
+            data,_=build(project,([(0,48,60,7,0,0)],[],8,6000,30105600,42,{60:7}))
+            self.assertEqual(data[-4:],b'RDX1')
+            self.assertEqual(struct.unpack_from('<II',data,len(data)-12),(1,2))

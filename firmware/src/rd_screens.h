@@ -11,10 +11,10 @@ static void rd_main_menu(void){
  rd_footer("SELECT MOVE  /  PLAY OK  /  HOME BACK");
 }
 static void rd_song_select(void){
- const uint8_t *im=cq_image(cq_get(144));char s[24],*p;rd_background();rd_header("SONG SELECT");rd_right(0,231,13,"01 / 01",RD_DIM);
+ const uint8_t *im=cq_image(cq_get(144));char s[24],*p;rd_background();rd_header("SONG SELECT");p=knum(s,CQ_SLOT+1u,2);kput(p," / ");p+=3;knum(p,KF_NSONG,2);rd_right(0,231,13,s,RD_DIM);
  krect(60,34,120,120,RD_YELLOW);cq_blit_scaled(cq_get(144),64,38,0,0,(int)cq_u16(im),(int)cq_u16(im+2),112,112);
  rd_center(3,120,159,KF_SONG[CQ_SLOT].title,RD_TEXT);p=knum(s,KF_SONG[CQ_SLOT].bpm_x100/100u,0);kput(p," BPM  /  MELODY");rd_center(1,120,182,s,RD_TEXT);
- rd_button(47,197,146,25,"START",1);rd_footer(autoplay?"SEQ AUTO ON  /  PLAY START":"SEQ AUTO OFF  /  PLAY START");
+ rd_button(47,197,146,25,"START",1);rd_footer(autoplay?"SELECT SONG / PLAY START / AUTO ON":"SELECT SONG / PLAY START / SEQ AUTO");
 }
 static void rd_settings(void){
  static const char *const label[4]={"MUSIC","SPEED","OFFSET","BACKING"};char s[24];int i;rd_background();rd_header("SETTINGS");
