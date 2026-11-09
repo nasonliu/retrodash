@@ -1,0 +1,9 @@
+build/
+__pycache__/
+.DS_Store
+
+*.pyc
+*.log
+.venv/
+projects/peaceful-days-spc/verification/reference.wav
+assets/chrono-trigger-source/crono-official-reference.png

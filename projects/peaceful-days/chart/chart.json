@@ -1,0 +1,28 @@
+{
+  "melodyTrack": 3,
+  "chordSelection": {
+    "default": "lowest",
+    "overrides": []
+  },
+  "keyMapping": "fm1-fixed-midi-53-79",
+  "melodyKeyOctaveShift": -2,
+  "backingParts": {
+    "1": 3,
+    "2": 5,
+    "4": 2,
+    "5": 1,
+    "6": 2,
+    "7": 4,
+    "8": 3,
+    "9": 3
+  },
+  "patches": {
+    "0": 0,
+    "1": 1,
+    "2": 1,
+    "3": 0,
+    "4": 1,
+    "5": 0
+  },
+  "minimumTapBeats": 1
+}

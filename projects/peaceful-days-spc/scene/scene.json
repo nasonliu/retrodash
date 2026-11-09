@@ -1,0 +1,54 @@
+{
+  "theme": {
+    "background": "#180C29",
+    "text": "#FFF5DD",
+    "target": "#FFEF19",
+    "nextOutline": "#FF36A7",
+    "miss": "#FF7C70"
+  },
+  "heroActor": "crono",
+  "layers": [
+    {
+      "id": "far",
+      "image": "far",
+      "y": 28,
+      "height": 186,
+      "scrollRatio": 0.1,
+      "tileX": true
+    },
+    {
+      "id": "village",
+      "image": "village",
+      "y": 28,
+      "height": 168,
+      "scrollRatio": 0.35,
+      "tileX": true
+    },
+    {
+      "id": "near",
+      "image": "foreground",
+      "y": 182,
+      "height": 16,
+      "scrollRatio": 0.75,
+      "tileX": true,
+      "foreground": true
+    },
+    {
+      "id": "floor",
+      "image": "ground",
+      "y": 196,
+      "scrollRatio": 1,
+      "tileX": true
+    }
+  ],
+  "targetSkins": [
+    {
+      "id": "imp",
+      "actor": "blue-imp"
+    }
+  ],
+  "defaultTargetSkin": "imp",
+  "events": [],
+  "approachMs": 2400,
+  "parallax": true
+}

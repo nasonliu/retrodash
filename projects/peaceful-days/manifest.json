@@ -1,0 +1,13 @@
+{
+  "format": "chipquest-project",
+  "version": 2,
+  "id": "retrodash.chrono-trigger.peaceful-days",
+  "title": "PEACEFUL DAYS",
+  "author": "User-supplied MIDI arrangement",
+  "music": "music/song.mid",
+  "chart": "chart/chart.json",
+  "art": "art/art.json",
+  "scene": "scene/scene.json",
+  "coverImage": "cover",
+  "credits": "licenses/credits.txt"
+}

@@ -1,0 +1,100 @@
+# Reproducible simulated keyboard input, not a human recording.
+300 shot
+600 btn 12
+1000 shot
+1300 enc 0 1
+1500 btn 12
+1800 shot
+2000 btn 12
+2200 enc 0 -4
+2400 shot
+2600 btn 12
+2800 btn 8
+3000 enc 0 1
+3200 btn 12
+3600 shot
+4000 btn 8
+4200 enc 0 -2
+4400 btn 12
+4800 shot
+5200 btn 11
+5300 shot
+5500 btn 11
+6000 btn 12
+6200 shot
+6500 btn 12
+6800 shot
+7000 btn 8
+10000 btn 12
+11000 shot
+12000 shot
+13498 keys 128
+13948 keys 0
+14000 shot
+14332 keys 512
+14782 keys 0
+15165 keys 2048
+15615 keys 0
+15998 keys 16384
+16000 shot
+16448 keys 0
+16832 keys 4096
+17282 keys 0
+17665 keys 2048
+18115 keys 0
+18498 keys 512
+18948 keys 0
+19332 keys 128
+19782 keys 0
+20000 shot
+20165 keys 2048
+20615 keys 0
+20998 keys 4096
+21448 keys 0
+21832 keys 16384
+22282 keys 0
+22665 keys 65536
+23115 keys 0
+23498 keys 16384
+23948 keys 0
+24332 keys 4096
+24782 keys 0
+25165 keys 2048
+25615 keys 0
+25998 keys 512
+26448 keys 0
+26832 keys 128
+27282 keys 0
+27665 keys 2048
+28115 keys 0
+28498 keys 16384
+28948 keys 0
+29332 keys 524288
+29782 keys 0
+30165 keys 262144
+30615 keys 0
+30998 keys 65536
+31448 keys 0
+31832 keys 16384
+32282 keys 0
+32665 keys 2048
+33115 keys 0
+33498 keys 4096
+33948 keys 0
+34332 keys 2048
+34782 keys 0
+35000 shot
+35165 keys 512
+35615 keys 0
+35998 keys 128
+36448 keys 0
+36832 keys 512
+37282 keys 0
+37665 keys 2048
+38115 keys 0
+38498 keys 512
+38948 keys 0
+39332 keys 128
+39782 keys 0
+47500 shot
+49000 end

@@ -1,0 +1,29 @@
+{
+  "sourceSha256": "540cc9ee952c30578818c86f6719c081436b478bb4849137a685885b0fc65f1d",
+  "durationSeconds": 151,
+  "rawRegisterWrites": 569801,
+  "changedRegisterWrites": 11669,
+  "clockEventBytes": 70014,
+  "deltaEventBytes": 47492,
+  "brrBytes": 14616,
+  "noteOnCount": 1434,
+  "voiceNoteCounts": {
+    "0": 216,
+    "1": 183,
+    "2": 86,
+    "3": 60,
+    "4": 105,
+    "5": 416,
+    "7": 206,
+    "6": 162
+  },
+  "manualTargets": 200,
+  "automaticMelodyFills": 2,
+  "comparison": {
+    "equal": true,
+    "comparedStereoFrames": 4831996,
+    "skippedFullEmulatorLeadingFrames": 4,
+    "description": "Changed-write DSP-only replay vs full SPC emulation, exact PCM comparison"
+  },
+  "validationScope": "offline conversion and PCM comparison; hardware validation is recorded in docs/hardware-validation.json"
+}

@@ -1,0 +1,16 @@
+{
+  "originalFilename": "Game MIDI_- Arranged -_Chrono Trigger (SNES∕Playstation, 1995)_04_Peaceful_Days.mid",
+  "sha256": "96ea192536f2e5c675eb75185b2490e4e33d1d9967bdd9c1fe436cd0961c0672",
+  "tempoBpm": 86,
+  "melodyTrack": 3,
+  "melodyNotes": 255,
+  "originalMelodyRange": [
+    77,
+    95
+  ],
+  "keyOctaveShift": -2,
+  "soundingPitchPreserved": true,
+  "originalMidiUnmodified": true,
+  "routing": "All backing notes retained. Same-instrument tracks share synthesis parts; original MIDI track IDs remain intact.",
+  "synthesis": "Built-in FM approximations, not the original SNES sample bank."
+}

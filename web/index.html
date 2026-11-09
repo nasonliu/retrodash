@@ -1,0 +1,295 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only
+     VaveHero's page and installer (web/make_site.py makes the site). The install flow follows FM-1 Clock's page, after
+     SLOOP's installer page (web/index_pkg.html, Copyright (C) 2026 Leo Kuroshita (@kurogedelic), Hügelton Instruments;
+     isod89); its protocol is SLOOP's own, unchanged: web/fm1pkg.js, web/fm1ota.js. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VaveHero</title>
+<meta name="description" content="VaveHero: a rhythm game firmware for the M-VAVE FM-1. The notes come down a neon highway, you play them on the white keys, and a synthwave band plays along. Install it from the browser.">
+<!-- the link preview: the card a chat or a post shows for the link (web/make_og.py makes the picture) -->
+<link rel="canonical" href="https://joakimskurk.github.io/fm1vavehero/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VaveHero">
+<meta property="og:title" content="VaveHero: a rhythm game for the M-VAVE FM-1">
+<meta property="og:description" content="The notes come down a neon highway, you play them on the white keys, and a synthwave band plays along. Free firmware, installed from the browser.">
+<meta property="og:url" content="https://joakimskurk.github.io/fm1vavehero/">
+<meta property="og:image" content="https://joakimskurk.github.io/fm1vavehero/screens/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VaveHero's title screen on the FM-1: the chrome logo, a striped sun, and the note highway on a neon floor">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0c041e">
+<link rel="icon" href="screens/logo.png">
+<style>
+  :root { --bg: #0c041e; --panel: #1d0d38; --line: #47226f; --fg: #f4eefa; --dim: #a58ccc;
+          --neon: #ff4fd8; --cyan: #5fe3ff; --amber: #ffb347; --good: #6ee7a0; --bad: #ff6b5a; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  html { background: var(--bg); }
+  body { margin: 0; color: var(--fg); background: linear-gradient(#07021a, #2a0c50 520px, var(--bg) 1300px) no-repeat var(--bg);
+         font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 56px; }
+  a { color: var(--cyan); }
+  h1 { margin: 0; line-height: 0; }
+  h1 img { display: block; width: min(480px, 100%); height: auto; margin: 0 auto; }
+  .tag { color: var(--dim); margin: 10px 0 0; font-size: 17px; text-align: center; }
+  h2 { font-size: 22px; line-height: 1.2; margin: 44px 0 12px; color: var(--neon); letter-spacing: .02em; }
+  .hero { display: flex; gap: 16px; justify-content: center; align-items: flex-start; margin: 28px 0 24px;
+          flex-wrap: wrap; }
+  .hero img { display: block; width: 320px; max-width: 100%; height: auto; border: 1px solid var(--line);
+              image-rendering: pixelated; }
+  .lead { font-size: 18px; margin: 0 0 22px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0 0 8px; }
+  .fact { background: var(--panel); border-top: 3px solid var(--neon); padding: 10px 12px 12px; }
+  .fact b { display: block; font-size: 26px; line-height: 1.1; color: var(--amber); }
+  .fact span { display: block; color: var(--dim); font-size: 13px; line-height: 1.35; margin-top: 4px; }
+  .box { background: var(--panel); border: 1px solid var(--line); padding: 20px; }
+  ol { margin: 0 0 16px; padding-left: 22px; } li { margin: 0 0 4px; }
+  button#go { font: 700 16px/1 inherit; font-family: inherit; width: 100%; padding: 16px 0; border: 0;
+              background: var(--neon); color: #1a0430; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+  button#go:hover:not(:disabled) { background: #ff7de2; }
+  button#go:disabled { background: var(--line); color: var(--dim); cursor: default; }
+  progress { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; margin: 14px 0 0; border: 0;
+             background: var(--line); }
+  progress::-webkit-progress-bar { background: var(--line); }
+  progress::-webkit-progress-value { background: var(--cyan); }
+  progress::-moz-progress-bar { background: var(--cyan); }
+  #status { margin: 12px 0 0; min-height: 1.6em; font-variant-numeric: tabular-nums; }
+  #status.good { color: var(--good); } #status.bad { color: var(--bad); }
+  .pkg { color: var(--dim); font-size: 13px; margin: 10px 0 0; overflow-wrap: anywhere; }
+  details { margin: 12px 0 0; } summary { cursor: pointer; color: var(--dim); font-size: 14px; }
+  pre { color: var(--dim); font-size: 12px; white-space: pre-wrap; max-height: 180px; overflow: auto; margin: 8px 0 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  td { border-top: 1px solid var(--line); padding: 7px 10px 7px 0; vertical-align: top; }
+  td:first-child { white-space: nowrap; font-weight: 700; color: var(--cyan); padding-right: 16px; }
+  code { background: var(--panel); padding: 1px 5px; font-size: 14px; }
+  .small { color: var(--dim); font-size: 14px; }
+  .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px 0 0; }
+  .shots img { width: 100%; height: auto; border: 1px solid var(--line); image-rendering: pixelated; }
+  .play { display: inline-block; margin: 6px 0 0; padding: 12px 20px; background: var(--cyan); color: #06121a;
+          font-weight: 700; text-decoration: none; letter-spacing: .04em; }
+  .play:hover { background: #8aecff; }
+  ul.links { padding-left: 20px; }
+  .early { margin: 0 0 22px; padding: 12px 16px; border-left: 3px solid var(--cyan); background: var(--panel);
+           font-size: 15px; line-height: 1.5; }
+  .early b { color: var(--cyan); }
+  .warn { margin: 22px 0 0; padding: 12px 16px; border: 2px solid #e0443a; border-radius: 4px; background: #3b1410;
+          color: #ffdcd5; font-size: 15px; line-height: 1.5; }
+  .warn b { color: #ff6f61; }
+  .testers { margin: 10px 0 0; padding: 10px 16px; border-left: 3px solid var(--amber); background: var(--panel); }
+  .testers b { color: var(--amber); }
+  .ack { display: flex; gap: 10px; align-items: flex-start; margin: 0 0 14px; cursor: pointer; }
+  .ack input { width: 18px; height: 18px; margin: 3px 0 0; flex: none; accent-color: var(--neon); }
+  .coffee { margin: 20px 0 0; text-align: center; }
+  .coffee a { display: inline-block; padding: 10px 18px; border-radius: 8px; background: #ffdd00; color: #1b1309;
+              font-weight: 700; text-decoration: none; }
+  .coffee a:hover { background: #ffe74d; }
+  footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; color: var(--dim); font-size: 13px; }
+  footer p { margin: 0 0 8px; }
+  @media (max-width: 560px) {
+    .facts, .shots { grid-template-columns: repeat(2, 1fr); }
+    .hero img { width: 100%; }
+    td:first-child { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1><img src="screens/logo.png" width="960" height="200" alt="VaveHero"></h1>
+  <p class="tag">A rhythm game firmware for the M-VAVE FM-1.</p>
+
+  <p class="warn" role="note"><b>⚠ Not yet tried on a real FM-1.</b> VaveHero is built and tested on every change,
+    in CI and in the FM-1 emulator, but it has not been tried on an actual device. Install it at your own risk.</p>
+  <p class="testers" role="note"><b>Testers wanted.</b> Have an FM-1, and know how to get it back (below the Install
+    button)? Be the first to try VaveHero on one, and tell us how it went in an
+    <a href="https://github.com/joakimskurk/fm1vavehero/issues/new?title=Tried+on+an+FM-1">issue on GitHub</a>: what
+    worked, what did not, and what the screen showed.</p>
+
+  <div class="hero">
+    <img src="screens/splash.gif" width="320" height="320" alt="The title screen: the chrome logo VAVEHERO over a striped sun and mountains, and the game's own highway as the road into the sunset, its notes coming towards you">
+    <img src="screens/play.png" width="320" height="320" alt="A song on the FM-1's screen: the notes coming down eight lanes on a neon floor under a sunset, the hit line, the keys below, the score and the combo">
+  </div>
+
+  <p class="lead">The notes come down a neon highway, one lane for each white key, and you play them on the FM-1's
+    own keys while its LEDs show what is coming. A synthwave band plays along: bass, pads, arpeggios and drums, every
+    sound synthesised on the FM-1 itself. Play a phrase without a slip and the six
+    operators fill up; press FX for OP BOOST.</p>
+
+  <p class="early" role="note"><b>An early version.</b> Four songs for now, and more will come. Song submissions
+    are very welcome: make one in your DAW as an ordinary MIDI file, try it in the
+    <a href="play.html">browser version</a>, and send it in (<a href="#songs">how</a>).</p>
+
+  <div class="facts">
+    <div class="fact"><b>8</b><span>lanes, one for each white key</span></div>
+    <div class="fact"><b>4</b><span>songs, each at its own level, EASY to HARD</span></div>
+    <div class="fact"><b>29</b><span>patches and drum kits, all synthesised</span></div>
+    <div class="fact"><b>60</b><span>frames a second at most; hits judged by the sound</span></div>
+  </div>
+
+  <h2 id="install">Install</h2>
+  <div class="box">
+    <ol>
+      <li>Open this page in <b>Chrome or Edge</b> on a computer (they can talk to the FM-1 over USB MIDI).</li>
+      <li>Connect the FM-1 <b>directly</b> to the computer with a USB data cable, and switch it on.</li>
+      <li>Close other apps that use MIDI, tick the box, press <b>Install</b> and allow MIDI when the browser asks.</li>
+    </ol>
+    <label class="ack"><input type="checkbox" id="ack"><span>I understand that VaveHero has not been tried on a real
+      FM-1 yet, and I install it at my own risk.</span></label>
+    <button id="go" disabled>Install</button>
+    <progress id="bar" max="100" value="0"></progress>
+    <p id="status">Loading the firmware…</p>
+    <p class="pkg" id="pkg"></p>
+    <details><summary>Log</summary><pre id="log"></pre></details>
+  </div>
+  <p class="small">Do not unplug the cable while it writes (about a minute). If an install is cut off, the FM-1
+    stays in update mode: replug it and press Install again, and it finishes. If the FM-1 does not start at all, hold
+    <b>OCT−</b> while switching it on: it starts in the USB rescue, where an installer always works. To go back to
+    the official firmware, use M-VAVE's own updater M-UPGRADE. Installing firmware is at your own risk.</p>
+
+  <h2>Playing it</h2>
+  <table>
+    <tr><td>Title screen</td><td>PLAY goes to the songs. FX plays the DEMO: the game playing itself.</td></tr>
+    <tr><td>SELECT</td><td>Picks the song. Each song has its own level, EASY, MED, HARD or EXP, fixed as on the
+      arcade machines and counted from how many notes come how fast: you pick the song, and the song is the challenge. The last row is MIDI MODE.</td></tr>
+    <tr><td>KNOB 2–4</td><td>Your voice (TONE), the speed for practice, and the mix of you and the band.</td></tr>
+    <tr><td>ALGORITHM</td><td>GRIT: how dirty the sound is, from clean to pumping and crushed.</td></tr>
+    <tr><td>GLO</td><td>SPREAD: the lanes on every other white key, for big fingers.</td></tr>
+    <tr><td>SEQ</td><td>AUTO: the song plays itself (its result is not kept).</td></tr>
+    <tr><td>In a song</td><td>The white keys play the lanes. OCT− and OCT+ follow the octave shifts, FX sets off
+      OP BOOST, PLAY pauses and HOME quits.</td></tr>
+    <tr><td>Results</td><td>The best result for each song is kept. PLAY plays it again, HOME goes back.</td></tr>
+    <tr><td>MIDI MODE</td><td>The FM-1 becomes the band's sound module for a DAW: one part on each channel, the keys
+      sent out on channel 1.</td></tr>
+  </table>
+  <div class="shots">
+    <img src="screens/songs.png" width="240" height="240" alt="The song list in the night sky">
+    <img src="screens/play.png" width="240" height="240" alt="A song in play">
+    <img src="screens/results.png" width="240" height="240" alt="The results: the grade in chrome, the accuracy and the hits">
+    <img src="screens/midi.png" width="240" height="240" alt="MIDI MODE: the seven parts on their channels">
+  </div>
+
+  <h2>Play it in the browser</h2>
+  <p>No FM-1? The game also runs in the browser, with the FM-1's panel on the screen (its keys, buttons and knobs, which
+    you can click, drag or touch) and the computer's keyboard or a MIDI keyboard as its keys. It is the reference the firmware is measured against: the same rules, songs and sound.
+    You can load your own songs into it as MIDI files.</p>
+  <a class="play" href="play.html">Play VaveHero in the browser</a>
+
+  <h2 id="songs">Your songs in VaveHero</h2>
+  <p>A song is an ordinary MIDI file from a DAW. Channel 1 is the part you play; channels 2–6 are the band (bass,
+    pad, arpeggio, lead, keys) and 10 the drums, and the audio engine plays it all in synthwave style, with several
+    patches for each part. Its level is counted from its notes over time: how many notes a second, over the whole song
+    and in its busiest four bars (a marker <code>LEVEL EASY</code>, <code>MED</code>, <code>HARD</code> or
+    <code>EXP</code> in the file sets it yourself). Load the file into the <a href="play.html">browser version</a>: you get a report and can
+    play it right away. How it works, with templates:
+    <a href="https://github.com/joakimskurk/fm1vavehero/blob/HEAD/docs/songs.md">making your own songs</a>.</p>
+  <p>Then send it in: open an <a href="https://github.com/joakimskurk/fm1vavehero/issues">issue on GitHub</a> with the
+    MIDI file attached, or a pull request that adds it to <code>songs/</code>. Say who made it and that it may be
+    shared under the project's licence (GPL-3.0). Covers of other people's songs cannot be taken; songs of your own
+    can. Submissions are very welcome.</p>
+
+  <h2>More</h2>
+  <ul class="links">
+    <li><a href="https://github.com/joakimskurk/fm1vavehero">The source on GitHub</a>, with everything about how it is made:
+      <a href="https://github.com/joakimskurk/fm1vavehero/blob/HEAD/docs/songs.md">making your own songs</a>,
+      <a href="https://github.com/joakimskurk/fm1vavehero/blob/HEAD/docs/DECISIONS.md">the decisions</a>,
+      <a href="https://github.com/joakimskurk/fm1vavehero/blob/HEAD/docs/fm1-budget.md">what fits on the FM-1</a>.</li>
+    <li><a id="dl" href="#">Download the firmware file</a> (<code>.fwsc</code>), to install it another way
+      (<code>tools/fm1_install.py</code>).</li>
+    <li>Try the firmware itself without an FM-1: open the file in <a href="https://joakimeriksson.github.io/fm1-emu/" target="_blank" rel="noopener">fm1-emu</a>,
+      the FM-1 emulator, in the browser.</li>
+  </ul>
+
+  <footer>
+    <p>VaveHero is free software under the GPL-3.0, with no warranty. It runs on
+      <a href="https://github.com/zvenson/dinghy">Dinghy</a> (zvenson), built on
+      <a href="https://github.com/hugelton/Felucca">Felucca</a> by Leo Kuroshita (Hügelton Instruments) and the platform of
+      <a href="https://github.com/isod89/sloop-fm1">SLOOP</a> (isod89), whose installer this page uses. The logo's letters
+      are Inter Display (Rasmus Andersson, SIL Open Font License).</p>
+    <p>"M-VAVE" and "FM-1" belong to their owners; this is a fan project, not an official M-VAVE product.</p>
+    <p class="coffee"><a href="https://buymeacoffee.com/skurk" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
+  </footer>
+</main>
+<script type="module">
+/*LIB*/
+const $ = (id) => document.getElementById(id);
+const meta = /*META*/;
+const TEXT = {
+  nomidi: "This browser cannot talk to the FM-1. Open the page in Chrome or Edge on a computer.",
+  loadfail: "Could not load the firmware: ", badpkg: "The firmware file is damaged. Reload the page.",
+  start: "Starting", verify: "Checking", loader: "Switching the FM-1 to update mode", write: "Writing",
+  reboot: "Restarting", done: "Done: VaveHero is installed.",
+  stopped: "Stopped. Replug the USB cable and press Install again.",
+  error: "Error: ",
+  denied: "MIDI (SysEx) was not allowed. Allow MIDI in the site settings (the address bar) and press Install again.",
+  notfound: "FM-1 not found. Check the USB cable (a data cable, directly to the computer), close other apps that use MIDI, and press Install again.",
+  model: "The connected device is not an FM-1.",
+  lost: "The USB connection was lost. Replug it and press Install again.",
+  noloader: "The FM-1 in update mode was not found. Replug the USB cable and press Install again (it stays in update mode until it is finished).",
+  noreturn: "The FM-1 did not come back. Switch it off and on.",
+  mismatch: "Written, but the FM-1 reports another version: ",
+  foreign: "The FM-1 is in the update mode of another firmware. Finish that update with its own updater (M-UPGRADE), then press Install again: ",
+  leave: "Writing. Do not close the page.",
+};
+const say = (k, arg = "", cls = "") => { const s = $("status"); s.textContent = (TEXT[k] ?? k) + arg; s.className = cls; };
+const log = (t) => { $("log").textContent += t + "\n"; };
+let image = null, writing = false;
+const lock = (on) => { writing = on; $("go").disabled = on || !image || !$("ack").checked; };   /* (not tried on an FM-1: the box first) */
+$("ack").addEventListener("change", () => lock(writing));
+window.addEventListener("beforeunload", (e) => { if (writing) { e.preventDefault(); e.returnValue = TEXT.leave; } });
+$("dl").href = meta.pkg;
+$("dl").setAttribute("download", meta.pkg.split("/").pop());
+$("pkg").textContent = `VaveHero ${meta.version} · ${meta.product} · SHA-256 ${meta.sha256}`;
+(async () => {
+  try {
+    const sha = async (b) => [...new Uint8Array(await crypto.subtle.digest("SHA-256", b))].map((x) => x.toString(16).padStart(2, "0")).join("");
+    const get = async (cache) => {
+      const r = await fetch(meta.pkg, { cache });
+      if (!r.ok) throw new Error(`${meta.pkg}: HTTP ${r.status}`);
+      return new Uint8Array(await r.arrayBuffer());
+    };
+    let pkg = await get("no-cache");                 /* (a copy the browser kept of an older build: fetched again) */
+    const check = self.crypto && crypto.subtle;
+    if (check && (await sha(pkg)) !== meta.sha256) pkg = await get("reload");
+    if (productOf(pkg) !== meta.product || (check && (await sha(pkg)) !== meta.sha256)) { say("badpkg", "", "bad"); return; }
+    image = logicalImage(pkg);
+    if (!navigator.requestMIDIAccess) { say("nomidi", "", "bad"); return; }
+    say(`Ready: VaveHero ${meta.version}.`);
+    lock(false);
+  } catch (e) { say("loadfail", e.message, "bad"); }
+})();
+const step = (k, a) => {
+  const total = 74 + Math.ceil((image ? image.length : 0) / 512);   /* the reads: the check, then the write */
+  log(`${k} ${a ?? ""}`);
+  if (k === "verify") $("bar").value = Math.min(100, (a / total) * 100);
+  if (k === "write") $("bar").value = Math.min(100, ((74 + a) / total) * 100);
+  if (k === "done") { $("bar").value = 100; say("done", "", "good"); return; }
+  if (["start", "verify", "loader", "write", "reboot"].includes(k)) say(k);
+};
+$("go").addEventListener("click", async () => {
+  if (writing || !$("ack").checked) return;
+  lock(true);
+  let midi;
+  try { midi = await navigator.requestMIDIAccess({ sysex: true }); }
+  catch (e) { say("denied", "", "bad"); lock(false); return; }
+  try {
+    const up = new Updater(midi, log);
+    const ota = await up.find((id) => /^ota-/i.test(id.model), true);   /* an install cut off: finish it */
+    if (ota) {
+      ota.link.close();
+      if (await up.resume(image, step)) say("done", "", "good"); else say("stopped", "", "bad");
+    } else {
+      await up.install(image, meta.product, step);
+    }
+  } catch (e) {
+    if (e && e.code && TEXT[e.code]) say(e.code, e.detail || "", "bad"); else say("error", e && e.message, "bad");
+    log(String(e && e.stack || e));
+  }
+  lock(false);
+});
+</script>
+</body>
+</html>

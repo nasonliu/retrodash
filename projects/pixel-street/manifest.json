@@ -1,0 +1,13 @@
+{
+  "format": "chipquest-project",
+  "version": 2,
+  "id": "retrodash.slow-street",
+  "title": "SLOW STREET",
+  "author": "RetroDash demo",
+  "music": "music/song.mid",
+  "chart": "chart/chart.json",
+  "art": "art/art.json",
+  "scene": "scene/scene.json",
+  "coverImage": "cover",
+  "credits": "licenses/credits.txt"
+}

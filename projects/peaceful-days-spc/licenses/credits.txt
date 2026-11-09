@@ -1,0 +1,7 @@
+User-supplied SPC: Peaceful Days / Chrono Trigger Pre-Release. Composer tag: Yasunori Mitsuda. Game music/character rights belong to their respective owners.
+SPC is the timing and audio source; the previous arranged MIDI is not used for playback.
+Pitch-name calibration uses the corresponding melody notes in the supplied MIDI and requires listening verification.
+Original artwork credits follow:
+Peaceful Days / Chrono Trigger. Original game, characters and music belong to their respective rights holders, including Square Enix. User supplied this MIDI arrangement; arranger is not identified in its metadata. Original MIDI preserved byte-for-byte.
+Art: AI-generated fan artwork of Crono and a Chrono Trigger-inspired village/enemies; not extracted original SNES sprites.
+Engine: RetroDash / VaveHero / Dinghy, GPL-3.0; see root licensing.

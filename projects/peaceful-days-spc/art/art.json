@@ -1,0 +1,374 @@
+{
+  "images": [
+    {
+      "id": "ground",
+      "path": "art/ground.png",
+      "encoding": "indexed4"
+    },
+    {
+      "id": "cover",
+      "path": "art/cover.png",
+      "encoding": "indexed8"
+    },
+    {
+      "id": "far",
+      "path": "art/far.png",
+      "encoding": "indexed8",
+      "paletteGroup": "scene"
+    },
+    {
+      "id": "village",
+      "path": "art/village.png",
+      "encoding": "indexed8",
+      "paletteGroup": "scene"
+    },
+    {
+      "id": "foreground",
+      "path": "art/foreground.png",
+      "encoding": "indexed4"
+    },
+    {
+      "id": "crono.fine.0",
+      "path": "art/crono-fine-0.png",
+      "encoding": "indexed4",
+      "paletteGroup": "crono"
+    },
+    {
+      "id": "crono.fine.1",
+      "path": "art/crono-fine-1.png",
+      "encoding": "indexed4",
+      "paletteGroup": "crono"
+    },
+    {
+      "id": "imp.fine",
+      "path": "art/imp-fine.png",
+      "encoding": "indexed4"
+    }
+  ],
+  "frames": [
+    {
+      "id": "crono.attack.3",
+      "image": "crono.fine.0",
+      "rect": [
+        0,
+        0,
+        100,
+        91
+      ],
+      "pivot": [
+        45,
+        91
+      ]
+    },
+    {
+      "id": "crono.run.0",
+      "image": "crono.fine.0",
+      "rect": [
+        100,
+        0,
+        67,
+        90
+      ],
+      "pivot": [
+        43,
+        90
+      ]
+    },
+    {
+      "id": "crono.run.1",
+      "image": "crono.fine.0",
+      "rect": [
+        167,
+        0,
+        68,
+        87
+      ],
+      "pivot": [
+        43,
+        87
+      ]
+    },
+    {
+      "id": "crono.attack.4",
+      "image": "crono.fine.0",
+      "rect": [
+        0,
+        91,
+        86,
+        89
+      ],
+      "pivot": [
+        45,
+        89
+      ]
+    },
+    {
+      "id": "crono.attack.2",
+      "image": "crono.fine.0",
+      "rect": [
+        86,
+        91,
+        73,
+        90
+      ],
+      "pivot": [
+        48,
+        90
+      ]
+    },
+    {
+      "id": "crono.run.2",
+      "image": "crono.fine.0",
+      "rect": [
+        159,
+        91,
+        68,
+        91
+      ],
+      "pivot": [
+        43,
+        91
+      ]
+    },
+    {
+      "id": "crono.run.3",
+      "image": "crono.fine.1",
+      "rect": [
+        0,
+        0,
+        68,
+        96
+      ],
+      "pivot": [
+        43,
+        96
+      ]
+    },
+    {
+      "id": "crono.run.4",
+      "image": "crono.fine.1",
+      "rect": [
+        68,
+        0,
+        68,
+        92
+      ],
+      "pivot": [
+        43,
+        92
+      ]
+    },
+    {
+      "id": "crono.run.5",
+      "image": "crono.fine.1",
+      "rect": [
+        136,
+        0,
+        68,
+        91
+      ],
+      "pivot": [
+        44,
+        91
+      ]
+    },
+    {
+      "id": "crono.attack.0",
+      "image": "crono.fine.1",
+      "rect": [
+        0,
+        96,
+        66,
+        90
+      ],
+      "pivot": [
+        42,
+        90
+      ]
+    },
+    {
+      "id": "crono.attack.1",
+      "image": "crono.fine.1",
+      "rect": [
+        66,
+        96,
+        69,
+        90
+      ],
+      "pivot": [
+        45,
+        90
+      ]
+    },
+    {
+      "id": "crono.attack.5",
+      "image": "crono.fine.1",
+      "rect": [
+        135,
+        96,
+        68,
+        90
+      ],
+      "pivot": [
+        44,
+        90
+      ]
+    },
+    {
+      "id": "imp.0",
+      "image": "imp.fine",
+      "rect": [
+        0,
+        0,
+        60,
+        60
+      ],
+      "pivot": [
+        30,
+        60
+      ]
+    },
+    {
+      "id": "imp.1",
+      "image": "imp.fine",
+      "rect": [
+        60,
+        0,
+        60,
+        60
+      ],
+      "pivot": [
+        30,
+        60
+      ]
+    }
+  ],
+  "clips": [
+    {
+      "id": "crono.run",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "crono.run.0",
+          "durationMs": 58
+        },
+        {
+          "frame": "crono.run.1",
+          "durationMs": 58
+        },
+        {
+          "frame": "crono.run.2",
+          "durationMs": 58
+        },
+        {
+          "frame": "crono.run.3",
+          "durationMs": 58
+        },
+        {
+          "frame": "crono.run.4",
+          "durationMs": 58
+        },
+        {
+          "frame": "crono.run.5",
+          "durationMs": 58
+        }
+      ]
+    },
+    {
+      "id": "crono.attack",
+      "loop": false,
+      "frames": [
+        {
+          "frame": "crono.attack.0",
+          "durationMs": 50
+        },
+        {
+          "frame": "crono.attack.1",
+          "durationMs": 50
+        },
+        {
+          "frame": "crono.attack.2",
+          "durationMs": 50
+        },
+        {
+          "frame": "crono.attack.3",
+          "durationMs": 50
+        },
+        {
+          "frame": "crono.attack.4",
+          "durationMs": 50
+        },
+        {
+          "frame": "crono.attack.5",
+          "durationMs": 50
+        }
+      ]
+    },
+    {
+      "id": "crono.miss",
+      "loop": false,
+      "frames": [
+        {
+          "frame": "crono.attack.0",
+          "durationMs": 170
+        }
+      ]
+    },
+    {
+      "id": "crono.hold",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "crono.attack.1",
+          "durationMs": 160
+        },
+        {
+          "frame": "crono.attack.2",
+          "durationMs": 160
+        }
+      ]
+    },
+    {
+      "id": "crono.clear",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "crono.run.0",
+          "durationMs": 200
+        }
+      ]
+    },
+    {
+      "id": "imp.move",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "imp.0",
+          "durationMs": 150
+        },
+        {
+          "frame": "imp.1",
+          "durationMs": 150
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "id": "crono",
+      "actions": {
+        "run": "crono.run",
+        "attack": "crono.attack",
+        "miss": "crono.miss",
+        "hold": "crono.hold",
+        "clear": "crono.clear"
+      }
+    },
+    {
+      "id": "blue-imp",
+      "actions": {
+        "move": "imp.move"
+      }
+    }
+  ]
+}

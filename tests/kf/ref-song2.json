@@ -1,0 +1,20 @@
+[
+ {
+  "name": "bars 1-4",
+  "rms_db": -20.51,
+  "peak": 0.5267,
+  "bright": 0.1159
+ },
+ {
+  "name": "bars 5-8",
+  "rms_db": -15.92,
+  "peak": 0.7127,
+  "bright": 0.1553
+ },
+ {
+  "name": "bars 9-12",
+  "rms_db": -16.2,
+  "peak": 0.664,
+  "bright": 0.1632
+ }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "frame": "run.0",
+    "scale": 0.21951219512195122,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      5,
+      15,
+      72,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "run.1",
+    "scale": 0.21951219512195122,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      5,
+      18,
+      73,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "run.2",
+    "scale": 0.21951219512195122,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      5,
+      14,
+      73,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "run.3",
+    "scale": 0.21951219512195122,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      5,
+      9,
+      73,
+      97
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "run.4",
+    "scale": 0.21951219512195122,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      5,
+      13,
+      73,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "run.5",
+    "scale": 0.21951219512195122,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      4,
+      14,
+      72,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "attack.0",
+    "scale": 0.2643171806167401,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      6,
+      15,
+      72,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "attack.1",
+    "scale": 0.2643171806167401,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      3,
+      15,
+      72,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "attack.2",
+    "scale": 0.2643171806167401,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      0,
+      15,
+      73,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "attack.3",
+    "scale": 0.2643171806167401,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      3,
+      14,
+      103,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "attack.4",
+    "scale": 0.2643171806167401,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      3,
+      16,
+      89,
+      105
+    ],
+    "nativeStature": 90
+  },
+  {
+    "frame": "attack.5",
+    "scale": 0.2643171806167401,
+    "pivot": [
+      48,
+      105
+    ],
+    "bounds": [
+      4,
+      15,
+      72,
+      105
+    ],
+    "nativeStature": 90
+  }
+]

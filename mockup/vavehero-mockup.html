@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1840">
+<title>VaveHero mockup</title>
+<style>
+  :root {
+    --bg: #0c0c11; --card: #13131a; --line: #25252e; --text: #ececf3; --dim: #9898a8; --faint: #66667280;
+    --cyan: #5fe3ff; --amber: #ffb347; --violet: #b388ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); }
+  body { color: var(--text); font-family: Inter, system-ui, sans-serif; width: 1840px; -webkit-font-smoothing: antialiased; }
+  .page { padding: 40px 40px 44px; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; }
+  .brand { display: flex; align-items: baseline; gap: 20px; }
+  h1 { font-size: 46px; font-weight: 900; letter-spacing: .05em; line-height: 1; }
+  h1 span { color: var(--cyan); }
+  .sub { font-size: 19px; color: var(--dim); font-weight: 500; }
+  .tags { display: flex; gap: 10px; }
+  .tag { font-size: 13px; font-weight: 600; color: var(--dim); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
+  .row1 { display: grid; grid-template-columns: 904px 512px 1fr; gap: 0 36px; align-items: start; }
+  .row2 { display: grid; grid-template-columns: 904px 1fr; gap: 0 36px; margin-top: 30px; align-items: start; }
+  .bezel { width: 512px; height: 512px; padding: 16px; background: #0b0b0e; border: 1px solid #2a2a30; border-radius: 20px;
+           position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .bezel canvas { width: 480px; height: 480px; image-rendering: pixelated; display: block; }
+  .mk, .legend .n { width: 24px; height: 24px; border-radius: 50%; background: #fff; color: #111; font: 800 13px/24px Inter, sans-serif; text-align: center; }
+  .mk { position: absolute; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px rgba(0,0,0,.7), 0 2px 8px rgba(0,0,0,.5); }
+  .cap { font-size: 13px; color: var(--dim); margin-top: 12px; opacity: .8; }
+  .legend { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .legend li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; font-size: 13.5px; line-height: 1.42; color: var(--dim); }
+  .legend li b { color: var(--text); font-weight: 700; }
+  .chips { display: flex; gap: 26px; margin-top: 14px; font-size: 13.5px; color: var(--dim); align-items: center; }
+  .chip { display: flex; align-items: center; gap: 9px; }
+  .led { width: 9px; height: 22px; border-radius: 5px; background: #1a1a1e; border: 1px solid #111; }
+  .led.lit { background: #f4f4ff; box-shadow: 0 0 10px 3px rgba(244,244,255,.5); }
+  .led.dim { background: rgba(244,244,255,.36); box-shadow: 0 0 5px 1px rgba(244,244,255,.18); }
+  .bracket { width: 30px; height: 8px; border: 2px solid var(--cyan); border-top: none; }
+  .screens { display: flex; gap: 32px; }
+  .scard { width: 280px; }
+  .sbez { width: 264px; height: 264px; padding: 11px; background: #0b0b0e; border: 1px solid #2a2a30; border-radius: 14px; }
+  .sbez canvas { width: 240px; height: 240px; image-rendering: pixelated; display: block; }
+  .scard h3 { font-size: 15px; font-weight: 800; margin: 12px 0 4px; }
+  .scard p { font-size: 13px; color: var(--dim); line-height: 1.45; }
+  .controls { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px 26px 20px; }
+  .controls h2 { font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 14px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 34px; }
+  .ctl { display: grid; grid-template-columns: 112px 1fr; gap: 12px; font-size: 14px; line-height: 1.4; align-items: baseline; }
+  .ctl .k { font-weight: 800; font-size: 12px; letter-spacing: .05em; padding: 3px 8px; border-radius: 6px; background: #23232c; justify-self: start; white-space: nowrap; }
+  .ctl span:last-child { color: var(--dim); }
+  .note { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; color: var(--dim); line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="brand"><h1><img src="../assets/vavehero-logo.png" alt="VaveHero" width="288" height="60"></h1><div class="sub">A rhythm game for the M-VAVE FM-1 · concept mockup</div></div>
+    <div class="tags"><span class="tag">A Dinghy 0.5 app, the same family as RoboSeq and Star Distroyer</span><span class="tag">Not an official M-VAVE product</span></div>
+  </header>
+
+  <div class="row1">
+    <div>
+      <svg id="device" width="904" height="566" viewBox="0 0 904 566" role="img" aria-label="An FM-1 with VaveHero on its screen"></svg>
+      <div class="chips">
+        <span class="chip"><span class="led lit"></span>Key LED lit: press now</span>
+        <span class="chip"><span class="led dim"></span>Glow: the next note</span>
+        <span class="chip"><span class="bracket"></span>The play window on the screen, one octave</span>
+      </div>
+    </div>
+    <div>
+      <div class="bezel" id="bigwrap"><canvas id="big" width="240" height="240"></canvas></div>
+      <div class="cap">The screen at full resolution, 240 × 240 px, with Dinghy's own Terminus fonts (16 and 32 px). Enlarged 2×.</div>
+    </div>
+    <ol class="legend" id="legend"></ol>
+  </div>
+
+  <div class="row2">
+    <div class="screens">
+      <div class="scard"><div class="sbez"><canvas id="songs" width="240" height="240"></canvas></div>
+        <h3>Song select</h3><p>SELECT scrolls, KNOB 1 picks the level, PLAY starts. Medals and the best percentage are kept in flash.</p></div>
+      <div class="scard"><div class="sbez"><canvas id="boost" width="240" height="240"></canvas></div>
+        <h3>OP BOOST</h3><p>Six operators full and FX pressed: the highway glows, the score doubles, and the sound opens up with more modulation.</p></div>
+      <div class="scard"><div class="sbez"><canvas id="results" width="240" height="240"></canvas></div>
+        <h3>Results</h3><p>Grade, hits and timing. The average offset fine-tunes the latency calibration.</p></div>
+    </div>
+    <div class="controls">
+      <h2>Controls during play</h2>
+      <div class="grid">
+        <div class="ctl"><span class="k">WHITE KEYS</span><span>Play the notes. The LED shows what is coming.</span></div>
+        <div class="ctl"><span class="k">FX</span><span>Set off OP BOOST when the meter is full.</span></div>
+        <div class="ctl"><span class="k">OCT− / OCT+</span><span>Move the play window an octave when the song asks for it.</span></div>
+        <div class="ctl"><span class="k">PLAY</span><span>Pause and go on. Blinks in time.</span></div>
+        <div class="ctl"><span class="k">KNOB 1</span><span>SWEEP: turn into the target arc in sweep parts.</span></div>
+        <div class="ctl"><span class="k">HOME</span><span>Back to song select.</span></div>
+        <div class="ctl"><span class="k">KNOB 2</span><span>TONE: the FM sound of your voice.</span></div>
+        <div class="ctl"><span class="k">SELECT</span><span>Scroll songs and menus.</span></div>
+        <div class="ctl"><span class="k">KNOB 3</span><span>SPEED: practice tempo, 50–100 %.</span></div>
+        <div class="ctl"><span class="k">REC</span><span>Record your own song as a new note chart.</span></div>
+        <div class="ctl"><span class="k">KNOB 4</span><span>MIX: your voice against the backing.</span></div>
+        <div class="ctl"><span class="k">MASTER</span><span>Volume.</span></div>
+      </div>
+      <div class="note">The backing (drums, bass, chords) and your voice are played by the app's own engine, as in RoboSeq and SkurkyMello. Only the white keys are played. The black ones are shown but do nothing. With SPREAD, every other white key is used, for big fingers. The LEDs are white and have two levels (<code>fm1_led_key</code> and <code>fm1_led_key_glow</code>), so colour exists only on the screen.</div>
+    </div>
+  </div>
+</div>
+
+<script src="terminus.js"></script>
+<script>
+"use strict";
+/* ================================================================ colours */
+const hex = h => { const n = parseInt(h.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; };
+const mix = (a, b, t) => { const A = hex(a), B = hex(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, '0')).join(''); };
+const P = { bg: '#0a0a14', surf: '#17162b', surf2: '#24233f', line: '#2c2b52', text: '#efeefa', dim: '#8f8db0', mute: '#5d5b8a',
+            cyan: '#5fe3ff', amber: '#ffb347', violet: '#b388ff', coral: '#ff6b5a', blue: '#5b9bff', gold: '#ffd36b', ink: '#1a1206' };
+const KC = ['#5b9be0', '#f59a3a', '#f2e4c4', '#ee6048'];             /* KNOB 1-4 */
+const LANE = ['#2ee6c8', '#3fc1ff', '#5b9bff', '#8b7dff', '#b86cff', '#ff5fc8', '#ff7a59', '#ffb43d'];
+const laneCol = p => Number.isInteger(p) ? mix(LANE[p - 1], LANE[p], .5) : LANE[Math.floor(p)];
+
+/* ================================================================ Terminus, as Dinghy's cv_text draws it */
+const FONTS = {};
+for (const k of ['S', 'L']) {
+  const f = window.TERMINUS[k], bin = atob(f.data), d = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) d[i] = bin.charCodeAt(i);
+  FONTS[k] = Object.assign({}, f, { d });
+}
+function gi(f, ch) { let c = ch.charCodeAt(0); if (c >= 97 && c <= 122 && f.last < 97) c -= 32; if (c < f.first || c > f.last) c = 63; return c - f.first; }
+function text(ctx, fk, x, y, s, col, scale = 1) {
+  const f = FONTS[fk]; ctx.fillStyle = col;
+  for (const ch of s) {
+    const g = gi(f, ch), w = f.bw[g], bpr = (w + 1) >> 1, off = f.off[g];
+    for (let gy = 0; gy < f.h; gy++) for (let gx = 0; gx < w; gx++) {
+      const b = f.d[off + gy * bpr + (gx >> 1)], v = (gx & 1) ? b & 15 : b >> 4;
+      if (v) { ctx.globalAlpha = v / 15; ctx.fillRect(x + (gx - f.pad) * scale, y + gy * scale, scale, scale); }
+    }
+    x += f.adv[g] * scale;
+  }
+  ctx.globalAlpha = 1; return x;
+}
+const tw = (fk, s, scale = 1) => { const f = FONTS[fk]; let w = 0; for (const ch of s) w += f.adv[gi(f, ch)]; return w * scale; };
+function textOut(ctx, fk, x, y, s, col, out, scale = 1) {
+  for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, 1], [-1, 1], [1, -1]]) text(ctx, fk, x + dx, y + dy, s, out, scale);
+  text(ctx, fk, x, y, s, col, scale);
+}
+const textC = (ctx, fk, cx, y, s, col, scale = 1) => text(ctx, fk, Math.round(cx - tw(fk, s, scale) / 2), y, s, col, scale);
+const textR = (ctx, fk, rx, y, s, col) => text(ctx, fk, rx - tw(fk, s), y, s, col);
+
+/* ================================================================ pixel shapes */
+function rect(ctx, x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h)); }
+function pcap(ctx, x, y, w, h, c) {                       /* a capsule, row by row, no anti-aliasing */
+  x = Math.round(x); y = Math.round(y); w = Math.max(1, Math.round(w)); h = Math.max(1, Math.round(h));
+  const r = Math.min(h, w) / 2; ctx.fillStyle = c;
+  for (let j = 0; j < h; j++) {
+    const yc = j + .5, dy = h <= w ? Math.abs(yc - h / 2) : yc < r ? r - yc : yc > h - r ? yc - (h - r) : 0;   /* standing capsules round at top and bottom */
+    const ins = r < 2 ? 0 : Math.round(.92 * (dy >= r ? r : r - Math.sqrt(r * r - dy * dy)));
+    ctx.fillRect(x + ins, y + j, Math.max(1, w - 2 * ins), 1);
+  }
+}
+function ring(ctx, cx, cy, r, a0, a1, c, th = 2) {
+  ctx.fillStyle = c;
+  const steps = Math.ceil(Math.abs(a1 - a0) * r * 2.2);
+  for (let i = 0; i <= steps; i++) { const a = a0 + (a1 - a0) * i / steps;
+    for (let t = 0; t < th; t++) ctx.fillRect(Math.round(cx + Math.cos(a) * (r - t) - .5), Math.round(cy + Math.sin(a) * (r - t) - .5), 1, 1); }
+}
+
+/* ================================================================ the note highway: a perspective lane per white key */
+const HIT = 190, TOPY = 40, NL = 4, NR = 236, CX = 120, D = 3, LW = (NR - NL) / 8, RT = 96 / 232;
+const HY = HIT - (HIT - TOPY) / (1 - RT);
+const sc = z => D / (D + z), Y = z => HY + (HIT - HY) * sc(z), sAt = y => (y - HY) / (HIT - HY);
+const X = (u, s) => CX + (u - CX) * s, U = p => NL + p * LW;
+const fadeAt = y => Math.max(0, Math.min(1, (y - TOPY) / 26));
+const BLACK_B = [1, 2, 4, 5, 6];
+
+function highway(ctx, o) {
+  for (let y = TOPY; y < HIT; y++) {
+    const s = sAt(y + .5), f = fadeAt(y), near = (y - TOPY) / (HIT - TOPY);
+    for (let i = 0; i < 8; i++) {
+      const xl = Math.round(X(U(i), s)), xr = Math.round(X(U(i + 1), s));
+      let c = i % 2 ? '#100f23' : '#0c0b1b';
+      c = o.boost ? mix(c, i % 2 ? '#6a3cb0' : '#4a2a86', .18 + .22 * near) : mix(c, LANE[i], .04 + .11 * near);
+      rect(ctx, xl, y, xr - xl, 1, mix(P.bg, c, f));
+    }
+    for (let b = 0; b <= 8; b++) {
+      const edge = b === 0 || b === 8;
+      let x = Math.round(X(U(b), s)); if (b === 8) x -= 1;
+      const c = edge ? (o.boost ? P.gold : '#4d4b96') : BLACK_B.includes(b) ? '#2b2a58' : '#1c1b38';
+      rect(ctx, x, y, 1, 1, mix(P.bg, c, f));
+    }
+  }
+  for (let k = 1; k < 12; k++) {                                       /* the beat, every bar brighter */
+    const z = (o.phase || 0) + k * .5; if (z > ZTOP) break;
+    const y = Math.round(Y(z)), s = sAt(y + .5), bar = (k + (o.barOff || 0)) % 4 === 0;
+    const c = o.boost ? (bar ? '#c79a3c' : '#6b5330') : (bar ? '#45438a' : '#26254d');
+    rect(ctx, X(NL, s), y, X(NR, s) - X(NL, s), 1, mix(P.bg, c, fadeAt(y)));
+  }
+}
+const ZTOP = D / RT - D;
+
+function tail(ctx, p, z0, z1, col, held) {
+  for (let y = Math.round(Y(z1)); y <= Math.round(Y(z0)); y++) {
+    const s = sAt(y + .5), half = Math.max(1, .15 * LW * s), xc = X(U(p), s), f = fadeAt(y);
+    const xl = Math.round(xc - half), xr = Math.round(xc + half);
+    rect(ctx, xl, y, xr - xl, 1, mix(P.bg, mix(P.bg, col, held ? .9 : .55), f));
+    if (held) rect(ctx, Math.round(xc) - 1, y, 2, 1, mix(col, '#ffffff', .55));
+  }
+}
+function gem(ctx, n, o) {
+  const s = sc(n.z), y = Y(n.z), black = Number.isInteger(n.p), col = laneCol(n.p), f = fadeAt(y);
+  const w = Math.round((black ? .6 : .84) * LW * s), h = Math.max(3, Math.round((black ? 8 : 10) * s));
+  const x0 = Math.round(X(U(n.p), s) - w / 2), y0 = Math.round(y - h / 2), F = c => mix(P.bg, c, f);
+  pcap(ctx, x0 - 1, y0 - 1, w + 2, h + 2, F(mix(P.bg, o.boost ? P.gold : col, .5)));
+  pcap(ctx, x0, y0, w, h, F(col));
+  const r = Math.round(h / 2);
+  if (black) pcap(ctx, x0 + 1, y0 + 1, w - 2, h - 2, F(mix(col, '#05050c', .7)));
+  else {
+    rect(ctx, x0 + r, y0 + 1, Math.max(1, w - 2 * r), 1, F(mix(col, '#ffffff', .6)));
+    rect(ctx, x0 + r, y0 + h - 1, Math.max(1, w - 2 * r), 1, F(mix(col, '#000000', .3)));
+  }
+}
+function chordBar(ctx, g) {
+  const z = g[0].z, s = sc(z), y = Math.round(Y(z)), xs = g.map(n => X(U(n.p), s)).sort((a, b) => a - b);
+  rect(ctx, xs[0], y, xs[xs.length - 1] - xs[0], 1, mix(P.bg, '#ffffff', .4 * fadeAt(y)));
+}
+function octBand(ctx, z) {
+  const yc = Math.round(Y(z));
+  for (let y = yc - 8; y < yc + 8; y++) {
+    const s = sAt(y + .5), xl = Math.round(X(NL, s)), xr = Math.round(X(NR, s));
+    rect(ctx, xl, y, xr - xl, 1, (y === yc - 8 || y === yc + 7) ? P.violet : mix(P.bg, P.violet, .26));
+  }
+  textC(ctx, 'S', CX, yc - 8, 'OCT+', '#efe8ff');
+  for (const dx of [-48, -36, 36, 48]) {                              /* chevrons, pointing up */
+    const x = CX + dx; ctx.fillStyle = P.violet;
+    for (let i = 0; i < 4; i++) { ctx.fillRect(x - i, yc - 2 + i, 1, 1); ctx.fillRect(x + i, yc - 2 + i, 1, 1); }
+  }
+}
+function beam(ctx, p, col) {
+  for (let y = HIT - 48; y < HIT; y++) {
+    const s = sAt(y + .5), a = (y - (HIT - 48)) / 48, xl = Math.round(X(U(Math.floor(p)), s)) + 1, xr = Math.round(X(U(Math.floor(p) + 1), s)) - 1;
+    ctx.globalAlpha = .62 * a * a; rect(ctx, xl, y, xr - xl, 1, col);
+  }
+  ctx.globalAlpha = 1;
+}
+function burst(ctx, cx, cy, col, big) {
+  cx = Math.round(cx);
+  const rays = big ? 9 : 5, len = big ? [5, 8, 11, 14] : [4, 7, 9];
+  for (let k = 0; k < rays; k++) {
+    const a = Math.PI + (k + .5) / rays * Math.PI;
+    len.forEach((t, i) => rect(ctx, cx + Math.cos(a) * t, cy + Math.sin(a) * t, i ? 1 : 2, i ? 1 : 2, i % 2 ? col : '#ffffff'));
+  }
+  if (big) { rect(ctx, cx - 3, cy - 1, 7, 2, '#ffffff'); rect(ctx, cx - 1, cy - 4, 2, 7, '#ffffff'); }
+  else { rect(ctx, cx - 1, cy - 2, 2, 3, '#ffffff'); }
+}
+function keyStrip(ctx, o) {                                           /* the FM-1's two rows of capsule keys */
+  const st = o.keys || {};
+  const cap = (cx, y, w, h, col, state, black) => {
+    const x = cx - w / 2;
+    if (state === 'lit') { pcap(ctx, x - 1, y - 1, w + 2, h + 2, mix(P.bg, col, .55)); pcap(ctx, x, y, w, h, col);
+      rect(ctx, x + h / 2, y + 2, w - h, 1, mix(col, '#ffffff', .65)); }
+    else if (state === 'next') { pcap(ctx, x, y, w, h, col); pcap(ctx, x + 1, y + 1, w - 2, h - 2, mix(black ? '#1a1930' : '#2b2a46', col, .22)); }
+    else { pcap(ctx, x, y, w, h, black ? '#37366a' : '#3d3c64'); pcap(ctx, x + 1, y + 1, w - 2, h - 2, black ? '#191830' : '#2b2a46'); }
+  };
+  BLACK_B.forEach(b => cap(U(b), 193, 18, 12, null, null, true));     /* shown where they sit, never in the game (D1) */
+  for (let i = 0; i < 8; i++) cap(U(i + .5), 207, 25, 14, LANE[i], st['w' + i], false);
+}
+function header(ctx, num, title, diff, prog) {
+  rect(ctx, 0, 0, 240, 18, P.surf);
+  let x = 4; if (num) x = text(ctx, 'S', x, 1, num + ' ', P.amber);
+  text(ctx, 'S', x, 1, title, P.text);
+  if (diff) textR(ctx, 'S', 236, 1, diff, P.amber);
+  if (prog != null) { rect(ctx, 0, 18, 240, 2, '#25244a'); rect(ctx, 0, 18, 240 * prog, 2, P.cyan); }
+}
+function knobBar(ctx, labels) {
+  rect(ctx, 0, 222, 240, 18, P.surf);
+  labels.forEach((l, i) => {
+    const cx = 30 + 60 * i;
+    rect(ctx, cx - 22, 222, 44, 2, KC[i]);
+    if (i) rect(ctx, 60 * i, 226, 1, 11, P.line);
+    textC(ctx, 'S', cx, 223, l, KC[i]);
+  });
+}
+function opMeter(ctx, n, boost) {
+  const S = 12, G = 2, x0 = 120 - (6 * S + 5 * G) / 2;
+  for (let i = 0; i < 6; i++) {
+    const x = x0 + i * (S + G), y = 22, on = i < n, c = boost ? P.gold : P.amber;
+    if (on) { rect(ctx, x, y, S, 14, c); rect(ctx, x + 1, y + 1, S - 2, 1, mix(c, '#ffffff', .6)); }
+    else { rect(ctx, x, y, S, 14, '#3b3a66'); rect(ctx, x + 1, y + 1, S - 2, 12, '#14132a'); }
+    text(ctx, 'S', x + 2, y - 1, String(i + 1), on ? P.ink : P.mute);
+  }
+}
+function multPill(ctx, s, c) { pcap(ctx, 204, 21, 32, 16, c); textC(ctx, 'S', 220, 21, s, P.ink); }
+function sweepKnob(ctx, cx, cy) {
+  text(ctx, 'S', 196, 40, 'SWEEP', KC[0]);
+  ring(ctx, cx, cy, 13, Math.PI * .75, Math.PI * 2.25, '#2c2b52', 2);
+  ring(ctx, cx, cy, 13, Math.PI * 1.55, Math.PI * 1.95, KC[0], 3);
+  const a = Math.PI * 1.25; rect(ctx, cx + Math.cos(a) * 12 - 1.5, cy + Math.sin(a) * 12 - 1.5, 3, 3, '#ffffff');
+  textC(ctx, 'S', cx, cy - 8, 'K1', P.text);
+}
+
+/* ================================================================ the play screen */
+function drawPlay(ctx, o) {
+  rect(ctx, 0, 0, 240, 240, P.bg);
+  highway(ctx, o);
+  (o.beams || []).forEach(p => beam(ctx, p, laneCol(p)));
+  o.notes.filter(n => n.len).forEach(n => tail(ctx, n.p, n.held ? 0 : n.z, n.z + n.len, laneCol(n.p), n.held));
+  const groups = {};
+  o.notes.forEach(n => { if (n.chord != null) (groups[n.chord] = groups[n.chord] || []).push(n); });
+  Object.values(groups).forEach(g => chordBar(ctx, g));
+  o.notes.filter(n => !n.hit && !n.held).forEach(n => gem(ctx, n, o));
+  if (o.oct != null) octBand(ctx, o.oct);
+  rect(ctx, NL, HIT - 2, NR - NL, 1, mix(P.bg, o.boost ? P.gold : P.cyan, .4));
+  rect(ctx, NL, HIT - 1, NR - NL, 2, o.boost ? P.gold : P.cyan);
+  o.notes.filter(n => n.hit || n.held).forEach(n => burst(ctx, U(n.p), HIT - 1, laneCol(n.p), n.hit));
+  keyStrip(ctx, o);
+  if (o.judge) textOut(ctx, 'S', Math.round(CX - tw('S', o.judge) / 2), 150, o.judge, P.cyan, P.bg);
+  header(ctx, '03', 'NEON CARRIER', 'MED', o.progress);
+  text(ctx, 'S', 4, 21, o.score, P.text);
+  opMeter(ctx, o.ops, o.boost);
+  multPill(ctx, 'X' + o.mult, o.boost ? P.gold : P.amber);
+  text(ctx, 'S', 4, 40, 'COMBO', P.dim);
+  text(ctx, 'L', 4, 54, String(o.combo), o.boost ? P.gold : P.text);
+  if (o.sweep) sweepKnob(ctx, 216, 78);
+  if (o.boost) {                                                       /* a banner, as RoboSeq's round banners */
+    rect(ctx, 56, 44, 128, 30, mix(P.bg, '#000000', .3)); rect(ctx, 56, 43, 128, 1, P.gold); rect(ctx, 56, 74, 128, 1, P.gold);
+    textOut(ctx, 'L', Math.round(CX - tw('L', 'OP BOOST') / 2), 42, 'OP BOOST', P.gold, P.bg);
+  }
+  knobBar(ctx, ['SWEEP', 'TONE', 'SPEED', 'MIX']);
+}
+const MAIN = {
+  progress: .62, score: '128450', mult: 4, combo: 87, ops: 4, judge: 'PERFECT', sweep: true, oct: 2.25,
+  beams: [2.5, 4.5], keys: { w2: 'lit', w4: 'lit', w0: 'next', w1: 'next', w3: 'next' },
+  notes: [
+    { p: 2.5, z: 0, hit: true }, { p: 4.5, z: 0, len: 1.1, held: true },        /* E4 just hit, G4 held */
+    { p: .5, z: .5 },                                                            /* C4 */
+    { p: 1.5, z: 1, chord: 1 }, { p: 3.5, z: 1, chord: 1 },                      /* D4 + F4 */
+    { p: 5.5, z: 1.5 },                                                          /* A4 */
+    { p: 6.5, z: 1.8 },                                                          /* B4 */
+    { p: .5, z: 2.7 },                                                           /* after OCT+ */
+    { p: 2.5, z: 3, chord: 2 }, { p: 4.5, z: 3, chord: 2 },
+    { p: 7.5, z: 3.4, len: .5 },
+  ] };
+const BOOST = {
+  boost: true, progress: .71, score: '163920', mult: 8, combo: 112, ops: 6, judge: null, sweep: false, oct: null, phase: .25, barOff: 1,
+  beams: [7.5], keys: { w7: 'lit', w1: 'next', w3: 'next', w5: 'next' },
+  notes: [
+    { p: 7.5, z: 0, hit: true },
+    { p: 1.5, z: .75, chord: 1 }, { p: 3.5, z: .75, chord: 1 }, { p: 5.5, z: .75, chord: 1 },
+    { p: 4.5, z: 1.25, len: .7 }, { p: 6.5, z: 1.75 }, { p: 2.5, z: 2.25 }, { p: .5, z: 2.5 },
+    { p: 2.5, z: 2.75 }, { p: 4.5, z: 3 }, { p: 7.5, z: 3.25, len: .5 },
+  ] };
+
+/* ================================================================ song select */
+function drawSongs(ctx) {
+  rect(ctx, 0, 0, 240, 240, P.bg);
+  header(ctx, null, 'SONGS', null, null);
+  textR(ctx, 'S', 236, 1, '03/24', P.dim);
+  rect(ctx, 0, 18, 240, 1, P.line);
+  const songs = [['01', 'FIRST LIGHT', 3, '98%'], ['02', 'SINE CITY', 2, '91%'], ['03', 'NEON CARRIER', 2, '84%'],
+                 ['04', 'SIX OPERATORS', 1, '62%'], ['05', 'BELL GARDEN', 0, 'NEW'], ['06', 'BRASS TAPE', -1, '']];
+  songs.forEach((s, i) => {
+    const y = 22 + i * 20, sel = i === 2, lock = s[2] < 0;
+    if (sel) { rect(ctx, 2, y - 1, 236, 19, P.surf2); rect(ctx, 2, y - 1, 3, 19, P.cyan); }
+    text(ctx, 'S', 9, y, s[0], sel ? P.cyan : P.mute);
+    text(ctx, 'S', 33, y, s[1], lock ? P.mute : P.text);
+    if (lock) {                                                       /* a little padlock */
+      rect(ctx, 225, y + 8, 9, 7, P.mute); rect(ctx, 227, y + 4, 1, 4, P.mute); rect(ctx, 231, y + 4, 1, 4, P.mute); rect(ctx, 227, y + 3, 5, 1, P.mute);
+    } else if (s[2] === 0) textR(ctx, 'S', 236, y, s[3], P.cyan);
+    else {
+      for (let m = 0; m < 3; m++) {                                    /* medals */
+        const mx = 181 + m * 8, my = y + 6;
+        if (m < s[2]) { rect(ctx, mx, my, 5, 5, P.amber); rect(ctx, mx + 1, my + 1, 2, 1, '#ffe2b0'); }
+        else { rect(ctx, mx, my, 5, 5, '#3b3a66'); rect(ctx, mx + 1, my + 1, 3, 3, P.bg); }
+      }
+      textR(ctx, 'S', 236, y, s[3], sel ? P.text : P.dim);
+    }
+  });
+  rect(ctx, 2, 144, 236, 74, P.surf);
+  text(ctx, 'S', 9, 148, 'BPM 118', P.text); textR(ctx, 'S', 231, 148, '2:48', P.dim);
+  text(ctx, 'S', 9, 168, 'RANGE', P.dim); text(ctx, 'S', 57, 168, 'C4-C5', P.cyan); textR(ctx, 'S', 231, 168, 'CHORDS', P.violet);
+  const lv = ['EASY', 'MED', 'HARD', 'EXP']; let x = 0; const ws = lv.map(t => tw('S', t) + 10), tot = ws.reduce((a, b) => a + b) + 3 * 6;
+  x = Math.round(120 - tot / 2);
+  lv.forEach((t, i) => {
+    const on = i === 1;
+    if (on) pcap(ctx, x, 192, ws[i], 18, P.amber); else { pcap(ctx, x, 192, ws[i], 18, P.line); pcap(ctx, x + 1, 193, ws[i] - 2, 16, P.surf); }
+    text(ctx, 'S', x + 5, 193, t, on ? P.ink : P.dim); x += ws[i] + 6;
+  });
+  knobBar(ctx, ['LEVEL', 'TONE', 'SPEED', 'MIX']);
+}
+
+/* ================================================================ results */
+function drawResults(ctx) {
+  rect(ctx, 0, 0, 240, 240, P.bg);
+  header(ctx, '03', 'NEON CARRIER', 'MED', null);
+  rect(ctx, 0, 18, 240, 1, P.line);
+  textOut(ctx, 'L', 10, 14, 'A', P.amber, '#3a2606', 2);
+  text(ctx, 'S', 62, 24, 'ACCURACY', P.dim);
+  text(ctx, 'L', 62, 38, '94.2%', P.text);
+  text(ctx, 'S', 62, 72, '128450', P.dim);
+  const nb = tw('S', 'NEW BEST') + 10; pcap(ctx, 236 - nb, 72, nb, 17, P.cyan); text(ctx, 'S', 241 - nb, 72, 'NEW BEST', P.ink);
+  const rows = [['PERFECT', 212, P.cyan], ['GREAT', 41, P.blue], ['GOOD', 9, P.violet], ['MISS', 6, P.coral]];
+  rows.forEach((r, i) => {
+    const y = 96 + i * 18;
+    text(ctx, 'S', 4, y, r[0], r[2]);
+    rect(ctx, 70, y + 7, 128, 4, '#1d1c38'); rect(ctx, 70, y + 7, Math.max(3, Math.round(128 * r[1] / 212)), 4, r[2]);
+    textR(ctx, 'S', 236, y, String(r[1]), P.text);
+  });
+  rect(ctx, 2, 172, 236, 46, P.surf);
+  text(ctx, 'S', 9, 176, 'MAX COMBO', P.dim); textR(ctx, 'S', 231, 176, '143', P.text);
+  text(ctx, 'S', 9, 196, 'TIMING', P.dim); textR(ctx, 'S', 231, 196, '-6 MS EARLY', P.text);
+  rect(ctx, 0, 222, 240, 18, P.surf);
+  let x = text(ctx, 'S', 6, 223, 'PLAY', '#ffa52a'); text(ctx, 'S', x, 223, ' RETRY', P.text);
+  x = 234 - tw('S', 'HOME SONGS'); x = text(ctx, 'S', x, 223, 'HOME', P.dim); text(ctx, 'S', x, 223, ' SONGS', P.text);
+}
+
+/* ================================================================ the FM-1, from the panel drawing's measurements
+   (geometry in the units of Quixotic7/MvaveFM1-Designer: 904 x 566, 0.188 mm a unit) */
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, a, parent) { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (parent) parent.appendChild(e); return e; }
+function stxt(parent, x, y, s, a = {}) {
+  const t = el('text', Object.assign({ x, y, 'text-anchor': 'middle', 'font-family': 'Inter, sans-serif', 'font-size': 9.5, 'font-weight': 700, fill: '#8a8a92' }, a), parent);
+  t.textContent = s; return t;
+}
+const WHITE_X = [71, 119, 167, 215, 264, 312, 360, 408, 456, 504, 553, 601, 649, 697, 745, 794];
+const BLACK_X = [95, 143, 191, 288, 336, 432, 480, 529, 625, 673, 769];
+const STOCK_BLACK = ['OP1', 'OP2', 'OP3', 'OP4', 'OP5', 'OP6', 'PIT', 'GLO', 'MONO', 'POLY', ''];
+const keyBlack = k => (0x54A >> ((k + 5) % 12)) & 1;
+const KEY_LEDS = { 11: 'lit', 14: 'lit', 7: 'dim', 9: 'dim', 12: 'dim' };   /* E4 G4 now; C4 D4 F4 next */
+
+function drawDevice(svg, screenURL) {
+  const defs = el('defs', {}, svg);
+  for (const [id, sd] of [['b3', 2.5], ['b6', 6], ['b16', 16]]) { const f = el('filter', { id, x: '-60%', y: '-60%', width: '220%', height: '220%' }, defs); el('feGaussianBlur', { stdDeviation: sd }, f); }
+  const lg = el('linearGradient', { id: 'body', x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+  el('stop', { offset: 0, 'stop-color': '#232328' }, lg); el('stop', { offset: 1, 'stop-color': '#18181c' }, lg);
+  el('rect', { x: 34, y: 44, width: 836, height: 510, rx: 40, fill: '#000', opacity: .55, filter: 'url(#b16)' }, svg);
+  el('rect', { x: 22, y: 22, width: 860, height: 522, rx: 38, fill: 'url(#body)', stroke: '#000', 'stroke-width': 1.5 }, svg);
+  el('rect', { x: 29, y: 29, width: 846, height: 508, rx: 32, fill: 'none', stroke: '#2c2c33', 'stroke-width': 1 }, svg);
+  el('rect', { x: 52, y: 306, width: 800, height: 198, rx: 20, fill: '#141417', stroke: '#2a2a30' }, svg);
+  el('rect', { x: 484, y: 162, width: 338, height: 124, rx: 8, fill: '#141417', stroke: '#2a2a30' }, svg);
+  el('rect', { x: 77, y: 243, width: 127, height: 36, rx: 6, fill: '#141417', stroke: '#2a2a30' }, svg);
+  for (const dx of [262, 406, 599, 743]) el('circle', { cx: dx, cy: 404, r: 2, fill: '#3a3a42' }, svg);
+
+  /* keys */
+  let w = 0, b = 0;
+  for (let k = 0; k < 27; k++) {
+    const black = keyBlack(k), x = black ? BLACK_X[b] : WHITE_X[w], y = black ? 326 : 408, stock = black ? STOCK_BLACK[b] : '';
+    if (black) b++; else w++;
+    const st = KEY_LEDS[k], cx = x + 21;
+    if (st === 'lit') el('rect', { x: x - 5, y: y - 5, width: 52, height: 86, rx: 26, fill: '#f4f4ff', opacity: .2, filter: 'url(#b6)' }, svg);
+    el('rect', { x, y, width: 42, height: 76, rx: 21, fill: st === 'lit' ? '#393941' : '#2b2b31', stroke: '#0a0a0c' }, svg);
+    el('rect', { x: x + 4, y: y + 2, width: 34, height: 30, rx: 17, fill: '#fff', opacity: .035 }, svg);
+    if (st === 'lit') el('rect', { x: cx - 9, y: y + 9, width: 18, height: 40, rx: 9, fill: '#f4f4ff', opacity: .6, filter: 'url(#b3)' }, svg);
+    if (st === 'dim') el('rect', { x: cx - 7, y: y + 11, width: 14, height: 36, rx: 7, fill: '#f4f4ff', opacity: .16, filter: 'url(#b3)' }, svg);
+    el('rect', { x: cx - 4, y: y + 14, width: 8, height: 30, rx: 4, fill: st === 'lit' ? '#f6f6ff' : st === 'dim' ? 'rgba(244,244,255,0.40)' : '#1a1a1e', stroke: '#111', 'stroke-width': .6 }, svg);
+    if (stock) stxt(svg, cx, y + 64, stock, { 'font-size': 8.5, fill: '#6c6c76' });
+  }
+  el('path', { d: 'M264 489 v7 H595 v-7', fill: 'none', stroke: '#5fe3ff', 'stroke-width': 2 }, svg);
+  stxt(svg, 429.5, 524, 'PLAY WINDOW C4–C5', { 'font-size': 12, 'font-weight': 800, fill: '#5fe3ff', 'letter-spacing': 1.5 });
+
+  /* encoders */
+  const ENC = [['MASTER', 95, 101, 40, true], ['SELECT', 186.5, 101, -60], ['PRESETS', 95, 191, 120], ['ALGORITHM', 186.5, 191, -20],
+               ['KNOB1', 508, 101, -35], ['KNOB2', 604, 101, 10], ['KNOB3', 701, 101, 0], ['KNOB4', 797, 101, 30]];
+  const FN = { KNOB1: ['SWEEP', KC[0], ''], KNOB2: ['TONE', KC[1], 'BELL EP'], KNOB3: ['SPEED', KC[2], '100%'], KNOB4: ['MIX', KC[3], '60/40'] };
+  for (const [id, cx, cy, ang, pot] of ENC) {
+    if (!id.startsWith('KNOB')) stxt(svg, cx, cy - 35, id, { 'font-size': 9, fill: '#85858e', 'letter-spacing': .6 });
+    el('circle', { cx, cy, r: 21, fill: '#26262c', stroke: '#0a0a0c' }, svg);
+    el('circle', { cx, cy, r: 18, fill: 'none', stroke: '#3a3a42', 'stroke-width': 2.5, 'stroke-dasharray': '2 2.2' }, svg);
+    el('circle', { cx, cy, r: 12, fill: '#35353c' }, svg);
+    el('line', { x1: cx, y1: cy - 4, x2: cx, y2: cy - 11, stroke: pot ? '#fff' : '#c8c8d0', 'stroke-width': 2, 'stroke-linecap': 'round', transform: `rotate(${ang} ${cx} ${cy})` }, svg);
+    if (FN[id]) { stxt(svg, cx, cy + 35, FN[id][0], { 'font-size': 10.5, 'font-weight': 800, fill: FN[id][1], 'letter-spacing': .6 });
+      if (FN[id][2]) stxt(svg, cx, cy + 48, FN[id][2], { 'font-size': 9.5, 'font-weight': 600, fill: '#8a8a92' }); }
+  }
+
+  /* buttons: the 2 x 6 block and OCT */
+  const IDS = ['FX', 'SEL', 'ENV', 'LFO', 'EDIT', 'GLO', 'HOME', 'SAVE', 'ARP', 'SEQ', 'PLAY', 'REC'];
+  const BX = [500, 554, 608, 661, 715, 768], BY = [177, 231];
+  const GAME = { FX: ['BOOST', '#ffb347'], HOME: ['MENU', '#5fe3ff'], PLAY: ['PAUSE', '#5fe3ff'], REC: ['RECORD', '#5fe3ff'] };
+  IDS.forEach((id, i) => {
+    const x = BX[i % 6], y = BY[Math.floor(i / 6)], cx = x + 18;
+    el('rect', { x, y, width: 36, height: 36, rx: 5, fill: '#2b2b31', stroke: '#0a0a0c' }, svg);
+    stxt(svg, cx, y + 23, id, { 'font-size': 10, fill: '#9a9aa2' });
+    let led = '#1a1a1e', glow = null;
+    if (id === 'PLAY') { led = '#ffa52a'; glow = '#ffa52a'; }
+    if (id === 'FX') { led = 'rgba(244,244,255,0.42)'; }
+    if (glow) el('circle', { cx, cy: y + 8, r: 6, fill: glow, opacity: .55, filter: 'url(#b3)' }, svg);
+    el('circle', { cx, cy: y + 8, r: 2.3, fill: led }, svg);
+    if (id === 'PLAY') { el('circle', { cx: x + 6, cy: y + 30, r: 5, fill: '#3ddc5a', opacity: .5, filter: 'url(#b3)' }, svg); el('circle', { cx: x + 6, cy: y + 30, r: 2.6, fill: '#3ddc5a' }, svg); }
+    if (GAME[id]) stxt(svg, cx, y + 45.5, GAME[id][0], { 'font-size': 8, 'font-weight': 800, fill: GAME[id][1], 'letter-spacing': .4 });
+  });
+  for (const [x, lab, on] of [[87, 'OCT−', false], [153, 'OCT+', true]]) {
+    el('rect', { x, y: 250, width: 42, height: 22, rx: 6, fill: '#2b2b31', stroke: '#0a0a0c' }, svg);
+    stxt(svg, x + 24, 264.5, lab, { 'font-size': 9, fill: '#9a9aa2' });
+    if (on) el('circle', { cx: x + 7, cy: 261, r: 4.5, fill: '#f4f4ff', opacity: .35, filter: 'url(#b3)' }, svg);
+    el('circle', { cx: x + 7, cy: 261, r: 2, fill: on ? 'rgba(244,244,255,0.5)' : '#1a1a1e' }, svg);
+  }
+  stxt(svg, 140.5, 295, 'SHIFT WINDOW', { 'font-size': 8, 'font-weight': 800, fill: '#5fe3ff', 'letter-spacing': .4 });
+
+  /* the screen */
+  el('rect', { x: 247, y: 59, width: 201, height: 201, rx: 10, fill: '#0b0b0e', stroke: '#000' }, svg);
+  el('image', { x: 272, y: 84, width: 150, height: 150, href: screenURL, preserveAspectRatio: 'none' }, svg);
+  el('rect', { x: 272, y: 84, width: 150, height: 75, fill: '#fff', opacity: .025 }, svg);
+}
+
+/* ================================================================ the legend: marker positions in screen pixels */
+const LEGEND = [
+  [150, 9,   '<b>Song and progress.</b> Number, title and level in the top strip, as on the FM-1\'s own screens. The line under it is how far into the song you are.'],
+  [184, 29,  '<b>OP meter and multiplier.</b> Six operators, filled by flawless phrases. A full meter: press <b>FX</b> for OP BOOST.'],
+  [190, 80,  '<b>Octave shift.</b> Press OCT+ when the band reaches the hit line, and the play window moves an octave up.'],
+  [22, 96,   '<b>Combo.</b> Every tenth hit in a row raises the multiplier, up to ×4.'],
+  [232, 100, '<b>Sweep part.</b> Turn KNOB 1 into the target arc and hold it there. It drives the FM modulation in real time.'],
+  [160, 140, '<b>The note highway.</b> One lane per white key, and only the white keys are played. Tails are notes you hold, bars join chords.'],
+  [226, 199, '<b>The hit line</b> above two rows of capsule keys, shaped like the FM-1\'s own. The black keys are shown where they sit but do nothing.'],
+  [118, 231, '<b>Knob row.</b> What KNOB 1–4 do right now, in the knobs\' colours.'],
+];
+
+/* ================================================================ go */
+function paint(id, fn, arg) { const c = document.getElementById(id), ctx = c.getContext('2d'); fn(ctx, arg); return c; }
+const big = paint('big', drawPlay, MAIN);
+paint('boost', drawPlay, BOOST);
+paint('songs', drawSongs);
+paint('results', drawResults);
+drawDevice(document.getElementById('device'), big.toDataURL('image/png'));
+const wrap = document.getElementById('bigwrap'), leg = document.getElementById('legend');
+LEGEND.forEach(([x, y, html], i) => {
+  const m = document.createElement('div'); m.className = 'mk'; m.textContent = i + 1;
+  m.style.left = (16 + x * 2) + 'px'; m.style.top = (16 + y * 2) + 'px'; wrap.appendChild(m);
+  const li = document.createElement('li'); li.innerHTML = `<span class="n">${i + 1}</span><span>${html}</span>`; leg.appendChild(li);
+});
+window.__screens = () => Object.fromEntries(['big', 'boost', 'songs', 'results'].map(id => [id, document.getElementById(id).toDataURL('image/png')]));
+window.__ready = true;
+</script>
+</body>
+</html>

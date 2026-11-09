@@ -1,0 +1,8 @@
+{
+  "melodyTrack": 1,
+  "chordSelection": {
+    "default": "lowest",
+    "overrides": []
+  },
+  "keyMapping": "fm1-fixed-midi-53-79"
+}

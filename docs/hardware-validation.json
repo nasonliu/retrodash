@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-09",
+  "device": "M-VAVE FM-1, one connected unit",
+  "release": "0.1.0-beta",
+  "releaseIdentity": "FM-1_91720101",
+  "testBuildIdentity": "FM-1_950",
+  "inputTest": {
+    "method": "USB MIDI input into real device, AUTO disabled",
+    "noteOns": 200,
+    "noteOffs": 200,
+    "result": {
+      "clock": 154624000,
+      "second": 151.0,
+      "counts": [
+        200,
+        0,
+        0,
+        0
+      ],
+      "maxCombo": 200,
+      "auto": 0
+    }
+  },
+  "nativePcmCheckpoints": 21,
+  "nativePcmMismatches": 0,
+  "display": {
+    "minFps": 40,
+    "medianFps": 49,
+    "maxFps": 60,
+    "stable60": false
+  },
+  "audio": {
+    "maxCallbackMicroseconds": 2100,
+    "deadlineMisses": 0,
+    "spcErrors": 0,
+    "usbCaptureUnderflows": 81
+  },
+  "freezeRegression": {
+    "durationSeconds": 209.478,
+    "hardwareTimerRollovers": 1,
+    "displayContinuedAfterWrap": true,
+    "audioDeadlineMisses": 0,
+    "spcErrors": 0
+  }
+}

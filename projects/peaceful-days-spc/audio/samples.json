@@ -1,0 +1,46 @@
+[
+  {
+    "srcn": 32,
+    "startAddress": 18689,
+    "loopAddress": 18716,
+    "brrBytes": 7461,
+    "decodedSamples": 13264,
+    "loopEnabled": true,
+    "loopSampleOffset": 48,
+    "brr": "samples/srcn-20.brr",
+    "preview": "samples/srcn-20.wav"
+  },
+  {
+    "srcn": 33,
+    "startAddress": 26150,
+    "loopAddress": 27545,
+    "brrBytes": 1449,
+    "decodedSamples": 2576,
+    "loopEnabled": true,
+    "loopSampleOffset": 2480,
+    "brr": "samples/srcn-21.brr",
+    "preview": "samples/srcn-21.wav"
+  },
+  {
+    "srcn": 34,
+    "startAddress": 27599,
+    "loopAddress": 29579,
+    "brrBytes": 3060,
+    "decodedSamples": 5440,
+    "loopEnabled": true,
+    "loopSampleOffset": 3520,
+    "brr": "samples/srcn-22.brr",
+    "preview": "samples/srcn-22.wav"
+  },
+  {
+    "srcn": 35,
+    "startAddress": 30659,
+    "loopAddress": 33233,
+    "brrBytes": 2646,
+    "decodedSamples": 4704,
+    "loopEnabled": true,
+    "loopSampleOffset": 4576,
+    "brr": "samples/srcn-23.brr",
+    "preview": "samples/srcn-23.wav"
+  }
+]

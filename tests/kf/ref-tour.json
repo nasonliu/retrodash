@@ -1,0 +1,176 @@
+[
+ {
+  "name": "SYN LEAD",
+  "rms_db": -22.02,
+  "peak": 0.3206,
+  "bright": 0.2211
+ },
+ {
+  "name": "BELL EP",
+  "rms_db": -19.96,
+  "peak": 0.3631,
+  "bright": 0.1793
+ },
+ {
+  "name": "BRASS",
+  "rms_db": -22.65,
+  "peak": 0.3489,
+  "bright": 0.1756
+ },
+ {
+  "name": "GLASS",
+  "rms_db": -20.4,
+  "peak": 0.3639,
+  "bright": 0.2669
+ },
+ {
+  "name": "FUZZ",
+  "rms_db": -20.96,
+  "peak": 0.2719,
+  "bright": 0.3303
+ },
+ {
+  "name": "PULSE",
+  "rms_db": -24.85,
+  "peak": 0.3134,
+  "bright": 0.039
+ },
+ {
+  "name": "FM BASS",
+  "rms_db": -24.77,
+  "peak": 0.1841,
+  "bright": 0.0206
+ },
+ {
+  "name": "SUB",
+  "rms_db": -23.88,
+  "peak": 0.2203,
+  "bright": 0.0158
+ },
+ {
+  "name": "DIRT BASS",
+  "rms_db": -24.64,
+  "peak": 0.1505,
+  "bright": 0.0743
+ },
+ {
+  "name": "SUPERSAW",
+  "rms_db": -31.99,
+  "peak": 0.1572,
+  "bright": 0.1253
+ },
+ {
+  "name": "STRINGS",
+  "rms_db": -37.59,
+  "peak": 0.0699,
+  "bright": 0.1415
+ },
+ {
+  "name": "GLASS PAD",
+  "rms_db": -29.25,
+  "peak": 0.1463,
+  "bright": 0.1064
+ },
+ {
+  "name": "GRIT PAD",
+  "rms_db": -30.64,
+  "peak": 0.1419,
+  "bright": 0.1859
+ },
+ {
+  "name": "PLUCK",
+  "rms_db": -32.03,
+  "peak": 0.2104,
+  "bright": 0.1849
+ },
+ {
+  "name": "BELL",
+  "rms_db": -29.66,
+  "peak": 0.1465,
+  "bright": 0.3116
+ },
+ {
+  "name": "SQUARE",
+  "rms_db": -29.78,
+  "peak": 0.1297,
+  "bright": 0.1538
+ },
+ {
+  "name": "CRUSH",
+  "rms_db": -29.32,
+  "peak": 0.1786,
+  "bright": 0.2477
+ },
+ {
+  "name": "SAW LEAD",
+  "rms_db": -30.44,
+  "peak": 0.167,
+  "bright": 0.2015
+ },
+ {
+  "name": "SQUARE LEAD",
+  "rms_db": -30.27,
+  "peak": 0.1331,
+  "bright": 0.1727
+ },
+ {
+  "name": "BRASS LEAD",
+  "rms_db": -30.35,
+  "peak": 0.1483,
+  "bright": 0.1755
+ },
+ {
+  "name": "FUZZ LEAD",
+  "rms_db": -30.42,
+  "peak": 0.0978,
+  "bright": 0.312
+ },
+ {
+  "name": "FM EP",
+  "rms_db": -21.75,
+  "peak": 0.3022,
+  "bright": 0.0812
+ },
+ {
+  "name": "TINE",
+  "rms_db": -22.73,
+  "peak": 0.2678,
+  "bright": 0.0815
+ },
+ {
+  "name": "ORGAN",
+  "rms_db": -24.1,
+  "peak": 0.1925,
+  "bright": 0.0859
+ },
+ {
+  "name": "GRIT EP",
+  "rms_db": -23.85,
+  "peak": 0.1934,
+  "bright": 0.159
+ },
+ {
+  "name": "GATED",
+  "rms_db": -22.48,
+  "peak": 0.4699,
+  "bright": 0.3265
+ },
+ {
+  "name": "TIGHT",
+  "rms_db": -24.93,
+  "peak": 0.4885,
+  "bright": 0.4324
+ },
+ {
+  "name": "BOOM",
+  "rms_db": -20.19,
+  "peak": 0.4522,
+  "bright": 0.2475
+ },
+ {
+  "name": "DIRT",
+  "rms_db": -20.43,
+  "peak": 0.4773,
+  "bright": 0.4798
+ }
+]

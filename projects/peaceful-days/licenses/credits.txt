@@ -1,0 +1,3 @@
+Peaceful Days / Chrono Trigger. Original game, characters and music belong to their respective rights holders, including Square Enix. User supplied this MIDI arrangement; arranger is not identified in its metadata. Original MIDI preserved byte-for-byte.
+Art: AI-generated fan artwork of Crono and a Chrono Trigger-inspired village/enemies; not extracted original SNES sprites.
+Engine: RetroDash / VaveHero / Dinghy, GPL-3.0; see root licensing.

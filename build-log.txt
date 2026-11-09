@@ -1,0 +1,8 @@
+loader: image 10536 B at 0x1c0a800, bss end 0x1c0ff90
+loader: ota.bin 9077 B
+  ok    .ram_text: 916 insns, no calls
+  ok    image 220828 B of 581564; RAM .data+.bss 54920 B of 98304; pool 246256 B of 344064
+  ok    register access: hal/ only (src/, loader/ clean)
+app      /Users/nason/Documents/Codex/2026-11-09/https-fm1-quest-https-fm1-quest/work/fm1-quest/chipquest-fixed/build/vavehero.bin  220828 B
+loader   /Users/nason/Documents/Codex/2026-11-09/https-fm1-quest-https-fm1-quest/work/fm1-quest/chipquest-fixed/build/loader/ota.bin  9077 B
+package  /Users/nason/Documents/Codex/2026-11-09/https-fm1-quest-https-fm1-quest/work/fm1-quest/chipquest-fixed/build/vavehero.fwsc  612233 B, identity FM-1_950

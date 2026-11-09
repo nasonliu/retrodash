@@ -1,0 +1,46 @@
+{
+  "format": "retrodash-spc-project",
+  "version": 1,
+  "title": "PEACEFUL DAYS",
+  "id": "retrodash.chrono-trigger.peaceful-days.spc",
+  "runtimeStatus": "verified on FM-1 with the embedded SPC backend",
+  "source": "music/source.spc",
+  "audio": {
+    "engine": "sfc-dsp-event-replay",
+    "clockHz": 1024000,
+    "sampleRate": 32000,
+    "channels": 2,
+    "aram": "audio/aram.bin",
+    "registers": "audio/dsp-registers.bin",
+    "events": "audio/events.sde",
+    "samples": "audio/samples.json",
+    "notes": "audio/voices.json"
+  },
+  "chart": "chart/chart.json",
+  "durationSeconds": 151,
+  "sourceTags": {
+    "title": "Peaceful Days",
+    "game": "Chrono Trigger Pre-Release",
+    "artist": "Yasunori Mitsuda",
+    "fadeMilliseconds": 10000
+  },
+  "emulator": {
+    "repository": "https://github.com/blarggs-audio-libraries/snes_spc",
+    "revision": "ec8ee2bbe30451614c1d02a83f7af1c97d497d45"
+  },
+  "art": "art/art.json",
+  "scene": "scene/scene.json",
+  "coverImage": "cover",
+  "credits": "licenses/credits.txt",
+  "runtime": {
+    "backend": "snes_spc fast S-DSP",
+    "outputRate": 44100,
+    "loading": "embedded at firmware build time",
+    "minimumNoteValue": "1/8",
+    "defaultVisualScrollPercent": 100,
+    "visualScrollRange": [
+      50,
+      200
+    ]
+  }
+}

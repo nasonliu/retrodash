@@ -1,0 +1,14 @@
+# VaveHero on the host: FIRST LIGHT on AUTO (SEQ) from start to its results (60 beats at 96 BPM, then 4 more), PLAY
+# again, HOME to the songs (AUTO's result is not kept: the list still says NEW)
+300 btn 12
+600 btn 11
+900 btn 12
+4000 shot
+30000 shot
+38500 shot
+42000 shot
+42500 btn 12
+43500 shot
+44000 btn 8
+45000 shot
+45500 end

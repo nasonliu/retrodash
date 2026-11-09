@@ -1,0 +1,4 @@
+Music: Slow Street (72 BPM), original RetroDash demo composition. Source MIDI included.
+Visuals: original ImageGen-created courier, speaker robot and city background; revised animation uses a registered six-pose source sheet, prepared for this demo.
+Engine: VaveHero / Dinghy, GPL-3.0; see repository LICENSE and LICENSING.md.
+Song jacket: original ImageGen SLOW STREET artwork, separate from the generic RetroDash UI.

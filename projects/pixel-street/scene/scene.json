@@ -1,0 +1,35 @@
+{
+  "theme": {
+    "background": "#211632",
+    "text": "#FFF3CD",
+    "target": "#FFE85A",
+    "nextOutline": "#FF77B5",
+    "miss": "#FF7C70"
+  },
+  "heroActor": "courier",
+  "layers": [
+    {
+      "id": "far",
+      "image": "bg.street",
+      "y": 28,
+      "scrollRatio": 0,
+      "tileX": false
+    },
+    {
+      "id": "floor",
+      "image": "ground",
+      "y": 144,
+      "scrollRatio": 1,
+      "tileX": true
+    }
+  ],
+  "targetSkins": [
+    {
+      "id": "speaker",
+      "actor": "speaker"
+    }
+  ],
+  "defaultTargetSkin": "speaker",
+  "events": [],
+  "approachMs": 1800
+}

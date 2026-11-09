@@ -1,0 +1,346 @@
+{
+  "images": [
+    {
+      "id": "enemy.sheet",
+      "path": "art/enemies.png"
+    },
+    {
+      "id": "bg.street",
+      "path": "art/background.png"
+    },
+    {
+      "id": "ground",
+      "path": "art/ground.png"
+    },
+    {
+      "id": "cover",
+      "path": "art/cover.png"
+    },
+    {
+      "id": "hero.sheet.0",
+      "path": "art/hero-0.png"
+    },
+    {
+      "id": "hero.sheet.1",
+      "path": "art/hero-1.png"
+    },
+    {
+      "id": "hero.sheet.attack",
+      "path": "art/hero-attack.png"
+    }
+  ],
+  "frames": [
+    {
+      "id": "enemy.0",
+      "image": "enemy.sheet",
+      "rect": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "pivot": [
+        12,
+        24
+      ]
+    },
+    {
+      "id": "enemy.1",
+      "image": "enemy.sheet",
+      "rect": [
+        24,
+        0,
+        24,
+        24
+      ],
+      "pivot": [
+        12,
+        24
+      ]
+    },
+    {
+      "id": "hero.0",
+      "image": "hero.sheet.0",
+      "rect": [
+        0,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.1",
+      "image": "hero.sheet.0",
+      "rect": [
+        60,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.2",
+      "image": "hero.sheet.0",
+      "rect": [
+        120,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.3",
+      "image": "hero.sheet.1",
+      "rect": [
+        0,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.4",
+      "image": "hero.sheet.1",
+      "rect": [
+        60,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.5",
+      "image": "hero.sheet.1",
+      "rect": [
+        120,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.attack.0",
+      "image": "hero.sheet.attack",
+      "rect": [
+        0,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.attack.1",
+      "image": "hero.sheet.attack",
+      "rect": [
+        60,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.attack.2",
+      "image": "hero.sheet.attack",
+      "rect": [
+        120,
+        0,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.attack.3",
+      "image": "hero.sheet.attack",
+      "rect": [
+        0,
+        50,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.attack.4",
+      "image": "hero.sheet.attack",
+      "rect": [
+        60,
+        50,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "id": "hero.attack.5",
+      "image": "hero.sheet.attack",
+      "rect": [
+        120,
+        50,
+        60,
+        50
+      ],
+      "pivot": [
+        30,
+        43
+      ]
+    }
+  ],
+  "clips": [
+    {
+      "id": "courier.run",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "hero.0",
+          "durationMs": 95
+        },
+        {
+          "frame": "hero.1",
+          "durationMs": 95
+        },
+        {
+          "frame": "hero.2",
+          "durationMs": 95
+        },
+        {
+          "frame": "hero.3",
+          "durationMs": 95
+        }
+      ]
+    },
+    {
+      "id": "courier.attack",
+      "loop": false,
+      "frames": [
+        {
+          "frame": "hero.attack.0",
+          "durationMs": 50
+        },
+        {
+          "frame": "hero.attack.1",
+          "durationMs": 50
+        },
+        {
+          "frame": "hero.attack.2",
+          "durationMs": 50
+        },
+        {
+          "frame": "hero.attack.3",
+          "durationMs": 50
+        },
+        {
+          "frame": "hero.attack.4",
+          "durationMs": 50
+        },
+        {
+          "frame": "hero.attack.5",
+          "durationMs": 50
+        }
+      ]
+    },
+    {
+      "id": "courier.miss",
+      "loop": false,
+      "frames": [
+        {
+          "frame": "hero.5",
+          "durationMs": 140
+        }
+      ]
+    },
+    {
+      "id": "courier.hold",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "hero.4",
+          "durationMs": 100
+        }
+      ]
+    },
+    {
+      "id": "courier.clear",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "hero.0",
+          "durationMs": 200
+        }
+      ]
+    },
+    {
+      "id": "speaker.move",
+      "loop": true,
+      "frames": [
+        {
+          "frame": "enemy.0",
+          "durationMs": 160
+        },
+        {
+          "frame": "enemy.1",
+          "durationMs": 160
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "id": "courier",
+      "actions": {
+        "run": "courier.run",
+        "attack": "courier.attack",
+        "miss": "courier.miss",
+        "hold": "courier.hold",
+        "clear": "courier.clear"
+      }
+    },
+    {
+      "id": "speaker",
+      "actions": {
+        "move": "speaker.move"
+      }
+    }
+  ]
+}

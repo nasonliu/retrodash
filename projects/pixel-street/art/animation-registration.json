@@ -1,0 +1,182 @@
+[
+  {
+    "frame": 0,
+    "scale": 0.125,
+    "sourceHeadX": 308,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      4,
+      2,
+      43,
+      43
+    ]
+  },
+  {
+    "frame": 1,
+    "scale": 0.125,
+    "sourceHeadX": 299,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      2,
+      43,
+      43
+    ]
+  },
+  {
+    "frame": 2,
+    "scale": 0.125,
+    "sourceHeadX": 290,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      2,
+      43,
+      43
+    ]
+  },
+  {
+    "frame": 3,
+    "scale": 0.125,
+    "sourceHeadX": 307,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      2,
+      43,
+      43
+    ]
+  },
+  {
+    "frame": 4,
+    "scale": 0.125,
+    "sourceHeadX": 275,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      4,
+      2,
+      54,
+      43
+    ]
+  },
+  {
+    "frame": 5,
+    "scale": 0.125,
+    "sourceHeadX": 275,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      2,
+      45,
+      43
+    ]
+  },
+  {
+    "frame": "attack.0",
+    "scale": 0.125,
+    "sourceHeadX": 305,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      1,
+      43,
+      43
+    ]
+  },
+  {
+    "frame": "attack.1",
+    "scale": 0.125,
+    "sourceHeadX": 306,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      1,
+      43,
+      43
+    ]
+  },
+  {
+    "frame": "attack.2",
+    "scale": 0.125,
+    "sourceHeadX": 306,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      1,
+      45,
+      43
+    ]
+  },
+  {
+    "frame": "attack.3",
+    "scale": 0.125,
+    "sourceHeadX": 305,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      1,
+      51,
+      43
+    ]
+  },
+  {
+    "frame": "attack.4",
+    "scale": 0.125,
+    "sourceHeadX": 305,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      1,
+      43,
+      43
+    ]
+  },
+  {
+    "frame": "attack.5",
+    "scale": 0.125,
+    "sourceHeadX": 305,
+    "pivot": [
+      30,
+      43
+    ],
+    "visibleBounds": [
+      5,
+      1,
+      43,
+      43
+    ]
+  }
+]

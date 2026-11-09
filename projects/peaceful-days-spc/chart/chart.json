@@ -1,0 +1,2049 @@
+{
+  "format": "retrodash-spc-chart",
+  "version": 1,
+  "clockHz": 1024000,
+  "manualVoice": 0,
+  "manualSrcn": 34,
+  "bpm": 87.27,
+  "minimumTapBeats": 0.5,
+  "minimumNoteValue": "1/8",
+  "mergeGrid": "eighth-note",
+  "keyOctaveShift": -2,
+  "nextThenOnly": true,
+  "autoAccompanimentLights": false,
+  "pitchCalibration": {
+    "33": {
+      "dspPitch": 4549,
+      "midiPitch": 78
+    },
+    "34": {
+      "dspPitch": 3430,
+      "midiPitch": 78
+    }
+  },
+  "pitchCalibrationStatus": "aligned to melody pitches in supplied MIDI; verify by listening",
+  "targets": [
+    {
+      "noteIndex": 28,
+      "clock": 8446728,
+      "gateEndClock": 9118024,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 35,
+      "clock": 9150929,
+      "gateEndClock": 9822269,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 38,
+      "clock": 9856288,
+      "gateEndClock": 10177094,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 41,
+      "clock": 10204621,
+      "gateEndClock": 10526545,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 43,
+      "clock": 10554126,
+      "gateEndClock": 10875985,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 45,
+      "clock": 10908879,
+      "gateEndClock": 11230798,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 47,
+      "clock": 11262395,
+      "gateEndClock": 12284486,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 54,
+      "clock": 12312044,
+      "gateEndClock": 12633927,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 56,
+      "clock": 12669044,
+      "gateEndClock": 14042428,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 64,
+      "clock": 14073945,
+      "gateEndClock": 14741324,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 70,
+      "clock": 14774273,
+      "gateEndClock": 15445570,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 73,
+      "clock": 15474249,
+      "gateEndClock": 15795002,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 76,
+      "clock": 15827982,
+      "gateEndClock": 16149838,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 78,
+      "clock": 16177412,
+      "gateEndClock": 16499278,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 80,
+      "clock": 16526745,
+      "gateEndClock": 16848719,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 82,
+      "clock": 16884205,
+      "gateEndClock": 18961471,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 93,
+      "clock": 18990076,
+      "gateEndClock": 19310907,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 96,
+      "clock": 19338396,
+      "gateEndClock": 19660365,
+      "srcn": 34,
+      "dspPitch": 8640,
+      "soundingMidiPitch": 94,
+      "keyMidiPitch": 70,
+      "keyIndex": 17
+    },
+    {
+      "noteIndex": 98,
+      "clock": 19697378,
+      "gateEndClock": 20364624,
+      "srcn": 34,
+      "dspPitch": 9156,
+      "soundingMidiPitch": 95,
+      "keyMidiPitch": 71,
+      "keyIndex": 18
+    },
+    {
+      "noteIndex": 104,
+      "clock": 20392100,
+      "gateEndClock": 20714049,
+      "srcn": 34,
+      "dspPitch": 8640,
+      "soundingMidiPitch": 94,
+      "keyMidiPitch": 70,
+      "keyIndex": 17
+    },
+    {
+      "noteIndex": 106,
+      "clock": 20746885,
+      "gateEndClock": 21068878,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 108,
+      "clock": 21099804,
+      "gateEndClock": 21767754,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 114,
+      "clock": 21800493,
+      "gateEndClock": 22472011,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 117,
+      "clock": 22509682,
+      "gateEndClock": 23176252,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 124,
+      "clock": 23204886,
+      "gateEndClock": 23525698,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 127,
+      "clock": 23558676,
+      "gateEndClock": 23880515,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 129,
+      "clock": 23912935,
+      "gateEndClock": 24584780,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 136,
+      "clock": 24620976,
+      "gateEndClock": 25289018,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 142,
+      "clock": 25326784,
+      "gateEndClock": 25643852,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 148,
+      "clock": 25676677,
+      "gateEndClock": 25998651,
+      "srcn": 34,
+      "dspPitch": 4320,
+      "soundingMidiPitch": 82,
+      "keyMidiPitch": 58,
+      "keyIndex": 5
+    },
+    {
+      "noteIndex": 150,
+      "clock": 26026240,
+      "gateEndClock": 26348089,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 152,
+      "clock": 26381098,
+      "gateEndClock": 26702905,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 154,
+      "clock": 26735079,
+      "gateEndClock": 27401800,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 161,
+      "clock": 27434581,
+      "gateEndClock": 27756612,
+      "srcn": 34,
+      "dspPitch": 3850,
+      "soundingMidiPitch": 80,
+      "keyMidiPitch": 56,
+      "keyIndex": 3
+    },
+    {
+      "noteIndex": 163,
+      "clock": 27784057,
+      "gateEndClock": 28106051,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 165,
+      "clock": 28138573,
+      "gateEndClock": 29514571,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 174,
+      "clock": 29549516,
+      "gateEndClock": 30573645,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 180,
+      "clock": 30601172,
+      "gateEndClock": 30923088,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 182,
+      "clock": 30955418,
+      "gateEndClock": 31627325,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 189,
+      "clock": 31654811,
+      "gateEndClock": 31976761,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 191,
+      "clock": 32004374,
+      "gateEndClock": 32326209,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 193,
+      "clock": 32363693,
+      "gateEndClock": 33030467,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 200,
+      "clock": 33058121,
+      "gateEndClock": 33379920,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 202,
+      "clock": 33412834,
+      "gateEndClock": 33734733,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 204,
+      "clock": 33767281,
+      "gateEndClock": 34438992,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 211,
+      "clock": 34473974,
+      "gateEndClock": 34793802,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 215,
+      "clock": 34822444,
+      "gateEndClock": 35143226,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 218,
+      "clock": 35180489,
+      "gateEndClock": 35847501,
+      "srcn": 34,
+      "dspPitch": 4850,
+      "soundingMidiPitch": 84,
+      "keyMidiPitch": 60,
+      "keyIndex": 7
+    },
+    {
+      "noteIndex": 225,
+      "clock": 35874978,
+      "gateEndClock": 36196934,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 227,
+      "clock": 36229888,
+      "gateEndClock": 36551747,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 229,
+      "clock": 36584155,
+      "gateEndClock": 37256009,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 236,
+      "clock": 37288853,
+      "gateEndClock": 37610827,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 238,
+      "clock": 37638361,
+      "gateEndClock": 37960264,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 240,
+      "clock": 37996612,
+      "gateEndClock": 38664520,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 246,
+      "clock": 38692969,
+      "gateEndClock": 39368784,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 250,
+      "clock": 39401332,
+      "gateEndClock": 42180417,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 300,
+      "clock": 45382351,
+      "gateEndClock": 46051133,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 307,
+      "clock": 46087570,
+      "gateEndClock": 46228538,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 313,
+      "clock": 46436962,
+      "gateEndClock": 46755397,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 318,
+      "clock": 46790696,
+      "gateEndClock": 47110215,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 322,
+      "clock": 47140202,
+      "gateEndClock": 47459653,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 326,
+      "clock": 47489593,
+      "gateEndClock": 47809085,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 330,
+      "clock": 47846943,
+      "gateEndClock": 48169283,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 336,
+      "clock": 48199496,
+      "gateEndClock": 48518726,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 340,
+      "clock": 48549724,
+      "gateEndClock": 52034627,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 377,
+      "clock": 52067164,
+      "gateEndClock": 53093708,
+      "srcn": 34,
+      "dspPitch": 3850,
+      "soundingMidiPitch": 80,
+      "keyMidiPitch": 56,
+      "keyIndex": 3
+    },
+    {
+      "noteIndex": 390,
+      "clock": 53124651,
+      "gateEndClock": 53443149,
+      "srcn": 34,
+      "dspPitch": 4320,
+      "soundingMidiPitch": 82,
+      "keyMidiPitch": 58,
+      "keyIndex": 5
+    },
+    {
+      "noteIndex": 395,
+      "clock": 53475797,
+      "gateEndClock": 54851657,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 412,
+      "clock": 54889186,
+      "gateEndClock": 55910728,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 425,
+      "clock": 55940509,
+      "gateEndClock": 56260160,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 429,
+      "clock": 56293520,
+      "gateEndClock": 56614971,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 436,
+      "clock": 56650252,
+      "gateEndClock": 56969788,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 440,
+      "clock": 57000768,
+      "gateEndClock": 57319241,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 445,
+      "clock": 57350286,
+      "gateEndClock": 57668676,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 450,
+      "clock": 57707724,
+      "gateEndClock": 58028874,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 457,
+      "clock": 58059015,
+      "gateEndClock": 58378298,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 461,
+      "clock": 58415918,
+      "gateEndClock": 59082562,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 470,
+      "clock": 59115709,
+      "gateEndClock": 61200708,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 498,
+      "clock": 61231498,
+      "gateEndClock": 61904953,
+      "srcn": 34,
+      "dspPitch": 3237,
+      "soundingMidiPitch": 77,
+      "keyMidiPitch": 53,
+      "keyIndex": 0
+    },
+    {
+      "noteIndex": 507,
+      "clock": 61938387,
+      "gateEndClock": 63313472,
+      "srcn": 34,
+      "dspPitch": 3850,
+      "soundingMidiPitch": 80,
+      "keyMidiPitch": 56,
+      "keyIndex": 3
+    },
+    {
+      "noteIndex": 523,
+      "clock": 63350834,
+      "gateEndClock": 64721980,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 539,
+      "clock": 64755142,
+      "gateEndClock": 66130504,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 557,
+      "clock": 66163898,
+      "gateEndClock": 67539023,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 575,
+      "clock": 67577857,
+      "gateEndClock": 68248654,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 585,
+      "clock": 68284831,
+      "gateEndClock": 68603466,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 590,
+      "clock": 68634587,
+      "gateEndClock": 68952890,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 595,
+      "clock": 68986128,
+      "gateEndClock": 70361410,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 613,
+      "clock": 70400021,
+      "gateEndClock": 71071034,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 623,
+      "clock": 71107422,
+      "gateEndClock": 71420491,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 628,
+      "clock": 71456946,
+      "gateEndClock": 71775309,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 633,
+      "clock": 71807561,
+      "gateEndClock": 72479546,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 642,
+      "clock": 72510385,
+      "gateEndClock": 73178445,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 650,
+      "clock": 73216002,
+      "gateEndClock": 75640638,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 670,
+      "clock": 75669410,
+      "gateEndClock": 75990081,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 673,
+      "clock": 76028687,
+      "gateEndClock": 76699713,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 683,
+      "clock": 76730626,
+      "gateEndClock": 77049153,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 688,
+      "clock": 77085664,
+      "gateEndClock": 77403979,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 693,
+      "clock": 77436287,
+      "gateEndClock": 78102853,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 702,
+      "clock": 78139025,
+      "gateEndClock": 78807114,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 710,
+      "clock": 78845642,
+      "gateEndClock": 81624133,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 731,
+      "clock": 81662560,
+      "gateEndClock": 82339137,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 738,
+      "clock": 82366628,
+      "gateEndClock": 83038018,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 741,
+      "clock": 83072012,
+      "gateEndClock": 83392846,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 744,
+      "clock": 83420320,
+      "gateEndClock": 83742269,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 746,
+      "clock": 83775259,
+      "gateEndClock": 84091705,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 748,
+      "clock": 84124585,
+      "gateEndClock": 84446522,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 750,
+      "clock": 84478164,
+      "gateEndClock": 85500233,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 757,
+      "clock": 85527822,
+      "gateEndClock": 85849661,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 759,
+      "clock": 85884747,
+      "gateEndClock": 87258188,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 767,
+      "clock": 87289634,
+      "gateEndClock": 87957052,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 773,
+      "clock": 87989926,
+      "gateEndClock": 88661319,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 776,
+      "clock": 88695367,
+      "gateEndClock": 89016126,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 779,
+      "clock": 89043637,
+      "gateEndClock": 89365574,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 781,
+      "clock": 89393177,
+      "gateEndClock": 89715007,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 783,
+      "clock": 89747882,
+      "gateEndClock": 90069837,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 785,
+      "clock": 90099882,
+      "gateEndClock": 92177224,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 796,
+      "clock": 92205743,
+      "gateEndClock": 92526649,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 799,
+      "clock": 92559510,
+      "gateEndClock": 92881472,
+      "srcn": 34,
+      "dspPitch": 8640,
+      "soundingMidiPitch": 94,
+      "keyMidiPitch": 70,
+      "keyIndex": 17
+    },
+    {
+      "noteIndex": 801,
+      "clock": 92913127,
+      "gateEndClock": 93580348,
+      "srcn": 34,
+      "dspPitch": 9156,
+      "soundingMidiPitch": 95,
+      "keyMidiPitch": 71,
+      "keyIndex": 18
+    },
+    {
+      "noteIndex": 807,
+      "clock": 93613270,
+      "gateEndClock": 93935169,
+      "srcn": 34,
+      "dspPitch": 8640,
+      "soundingMidiPitch": 94,
+      "keyMidiPitch": 70,
+      "keyIndex": 17
+    },
+    {
+      "noteIndex": 809,
+      "clock": 93962613,
+      "gateEndClock": 94284616,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 811,
+      "clock": 94315489,
+      "gateEndClock": 94988866,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 817,
+      "clock": 95016247,
+      "gateEndClock": 95687751,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 820,
+      "clock": 95725422,
+      "gateEndClock": 96392017,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 827,
+      "clock": 96425941,
+      "gateEndClock": 96746822,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 830,
+      "clock": 96774473,
+      "gateEndClock": 97096273,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 832,
+      "clock": 97128704,
+      "gateEndClock": 97805890,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 839,
+      "clock": 97836746,
+      "gateEndClock": 98504785,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 845,
+      "clock": 98542565,
+      "gateEndClock": 98864971,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 851,
+      "clock": 98892405,
+      "gateEndClock": 99214414,
+      "srcn": 34,
+      "dspPitch": 4320,
+      "soundingMidiPitch": 82,
+      "keyMidiPitch": 58,
+      "keyIndex": 5
+    },
+    {
+      "noteIndex": 853,
+      "clock": 99241943,
+      "gateEndClock": 99563842,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 855,
+      "clock": 99596826,
+      "gateEndClock": 99918668,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 857,
+      "clock": 99950788,
+      "gateEndClock": 100617534,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 864,
+      "clock": 100650290,
+      "gateEndClock": 100972346,
+      "srcn": 34,
+      "dspPitch": 3850,
+      "soundingMidiPitch": 80,
+      "keyMidiPitch": 56,
+      "keyIndex": 3
+    },
+    {
+      "noteIndex": 866,
+      "clock": 100999823,
+      "gateEndClock": 101321807,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 868,
+      "clock": 101359765,
+      "gateEndClock": 102735694,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 877,
+      "clock": 102765315,
+      "gateEndClock": 103789383,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 883,
+      "clock": 103816872,
+      "gateEndClock": 104138823,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 885,
+      "clock": 104176536,
+      "gateEndClock": 104843074,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 892,
+      "clock": 104870511,
+      "gateEndClock": 105192522,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 894,
+      "clock": 105225509,
+      "gateEndClock": 105547344,
+      "srcn": 34,
+      "dspPitch": 7700,
+      "soundingMidiPitch": 92,
+      "keyMidiPitch": 68,
+      "keyIndex": 15
+    },
+    {
+      "noteIndex": 896,
+      "clock": 105579497,
+      "gateEndClock": 106246209,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 903,
+      "clock": 106279248,
+      "gateEndClock": 106601022,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 905,
+      "clock": 106628634,
+      "gateEndClock": 106950475,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 907,
+      "clock": 106983066,
+      "gateEndClock": 107660098,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 914,
+      "clock": 107689817,
+      "gateEndClock": 108009552,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 918,
+      "clock": 108043526,
+      "gateEndClock": 108358984,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 921,
+      "clock": 108396258,
+      "gateEndClock": 109063245,
+      "srcn": 34,
+      "dspPitch": 4850,
+      "soundingMidiPitch": 84,
+      "keyMidiPitch": 60,
+      "keyIndex": 7
+    },
+    {
+      "noteIndex": 928,
+      "clock": 109096097,
+      "gateEndClock": 109418046,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 930,
+      "clock": 109445632,
+      "gateEndClock": 109767491,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 932,
+      "clock": 109799946,
+      "gateEndClock": 110477123,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 939,
+      "clock": 110504564,
+      "gateEndClock": 110826573,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 941,
+      "clock": 110854178,
+      "gateEndClock": 111176003,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 943,
+      "clock": 111212318,
+      "gateEndClock": 111880251,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 949,
+      "clock": 111914090,
+      "gateEndClock": 112584513,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 953,
+      "clock": 112617084,
+      "gateEndClock": 115401542,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1003,
+      "clock": 118598128,
+      "gateEndClock": 119272268,
+      "srcn": 34,
+      "dspPitch": 6860,
+      "soundingMidiPitch": 90,
+      "keyMidiPitch": 66,
+      "keyIndex": 13
+    },
+    {
+      "noteIndex": 1010,
+      "clock": 119303302,
+      "gateEndClock": 119444291,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 1016,
+      "clock": 119652664,
+      "gateEndClock": 119971147,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 1021,
+      "clock": 120006458,
+      "gateEndClock": 120325952,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1025,
+      "clock": 120355857,
+      "gateEndClock": 120675405,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1029,
+      "clock": 120710717,
+      "gateEndClock": 121024826,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1033,
+      "clock": 121062630,
+      "gateEndClock": 121385041,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1039,
+      "clock": 121415158,
+      "gateEndClock": 121734475,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1043,
+      "clock": 121770842,
+      "gateEndClock": 125250373,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 1080,
+      "clock": 125282910,
+      "gateEndClock": 126309437,
+      "srcn": 34,
+      "dspPitch": 3850,
+      "soundingMidiPitch": 80,
+      "keyMidiPitch": 56,
+      "keyIndex": 3
+    },
+    {
+      "noteIndex": 1093,
+      "clock": 126340350,
+      "gateEndClock": 126658895,
+      "srcn": 34,
+      "dspPitch": 4320,
+      "soundingMidiPitch": 82,
+      "keyMidiPitch": 58,
+      "keyIndex": 5
+    },
+    {
+      "noteIndex": 1098,
+      "clock": 126696896,
+      "gateEndClock": 128072780,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1115,
+      "clock": 128104950,
+      "gateEndClock": 129126478,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1128,
+      "clock": 129156256,
+      "gateEndClock": 129475907,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1132,
+      "clock": 129514685,
+      "gateEndClock": 129836113,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 1139,
+      "clock": 129866028,
+      "gateEndClock": 130185533,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1143,
+      "clock": 130216541,
+      "gateEndClock": 130534976,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1148,
+      "clock": 130571476,
+      "gateEndClock": 130889786,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1153,
+      "clock": 130923490,
+      "gateEndClock": 131244621,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1160,
+      "clock": 131274746,
+      "gateEndClock": 131594064,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1164,
+      "clock": 131631777,
+      "gateEndClock": 132298303,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 1173,
+      "clock": 132331421,
+      "gateEndClock": 134416459,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1201,
+      "clock": 134452610,
+      "gateEndClock": 135120699,
+      "srcn": 34,
+      "dspPitch": 3237,
+      "soundingMidiPitch": 77,
+      "keyMidiPitch": 53,
+      "keyIndex": 0
+    },
+    {
+      "noteIndex": 1210,
+      "clock": 135154168,
+      "gateEndClock": 136529222,
+      "srcn": 34,
+      "dspPitch": 3850,
+      "soundingMidiPitch": 80,
+      "keyMidiPitch": 56,
+      "keyIndex": 3
+    },
+    {
+      "noteIndex": 1226,
+      "clock": 136566609,
+      "gateEndClock": 137937724,
+      "srcn": 34,
+      "dspPitch": 3430,
+      "soundingMidiPitch": 78,
+      "keyMidiPitch": 54,
+      "keyIndex": 1
+    },
+    {
+      "noteIndex": 1242,
+      "clock": 137970919,
+      "gateEndClock": 139346254,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1260,
+      "clock": 139385015,
+      "gateEndClock": 140760137,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1278,
+      "clock": 140793634,
+      "gateEndClock": 141464401,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 1288,
+      "clock": 141500603,
+      "gateEndClock": 141819206,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1293,
+      "clock": 141850334,
+      "gateEndClock": 142168649,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 1298,
+      "clock": 142207244,
+      "gateEndClock": 143582530,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1316,
+      "clock": 143615723,
+      "gateEndClock": 144286781,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 1326,
+      "clock": 144323063,
+      "gateEndClock": 144641603,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1331,
+      "clock": 144672689,
+      "gateEndClock": 144991035,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1336,
+      "clock": 145028672,
+      "gateEndClock": 145695291,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1345,
+      "clock": 145726135,
+      "gateEndClock": 146399568,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1353,
+      "clock": 146431698,
+      "gateEndClock": 148856397,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1373,
+      "clock": 148885095,
+      "gateEndClock": 149205829,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1376,
+      "clock": 149244397,
+      "gateEndClock": 149915463,
+      "srcn": 34,
+      "dspPitch": 6112,
+      "soundingMidiPitch": 88,
+      "keyMidiPitch": 64,
+      "keyIndex": 11
+    },
+    {
+      "noteIndex": 1386,
+      "clock": 149951745,
+      "gateEndClock": 150264889,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1391,
+      "clock": 150301371,
+      "gateEndClock": 150619722,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1396,
+      "clock": 150652004,
+      "gateEndClock": 151323979,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    },
+    {
+      "noteIndex": 1405,
+      "clock": 151354799,
+      "gateEndClock": 152022850,
+      "srcn": 34,
+      "dspPitch": 5138,
+      "soundingMidiPitch": 85,
+      "keyMidiPitch": 61,
+      "keyIndex": 8
+    },
+    {
+      "noteIndex": 1413,
+      "clock": 152061414,
+      "gateEndClock": 154624000,
+      "srcn": 34,
+      "dspPitch": 4578,
+      "soundingMidiPitch": 83,
+      "keyMidiPitch": 59,
+      "keyIndex": 6
+    }
+  ],
+  "automaticMelodyFills": [
+    {
+      "noteIndex": 312,
+      "clock": 46260917,
+      "gateEndClock": 46405952,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    },
+    {
+      "noteIndex": 1015,
+      "clock": 119476666,
+      "gateEndClock": 119621703,
+      "srcn": 34,
+      "dspPitch": 5768,
+      "soundingMidiPitch": 87,
+      "keyMidiPitch": 63,
+      "keyIndex": 10
+    }
+  ]
+}
